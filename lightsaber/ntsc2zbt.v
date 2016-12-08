@@ -34,13 +34,15 @@
 /////////////////////////////////////////////////////////////////////////////
 // Prepare data and address values to fill ZBT memory with NTSC data
 
+// Update by lcarter, 8 Dec 2016: change data width to 18 bits, two pixels per address.
+
 module ntsc_to_zbt(clk, vclk, fvh, dv, din, ntsc_addr, ntsc_data, ntsc_we, sw);
 
    input 	 clk;	// system clock
    input 	 vclk;	// video clock from camera
    input [2:0] 	 fvh;
    input 	 dv;
-   input [7:0] 	 din;
+   input [23:0] 	 din;  // Data input - THIS IS WHERE YCRCB COMES IN
    output [18:0] ntsc_addr;
    output [35:0] ntsc_data;
    output 	 ntsc_we;	// write enable for NTSC data
@@ -49,12 +51,12 @@ module ntsc_to_zbt(clk, vclk, fvh, dv, din, ntsc_addr, ntsc_data, ntsc_we, sw);
    parameter 	 COL_START = 10'd30;
    parameter 	 ROW_START = 10'd30;
 
-   // here put the luminance data from the ntsc decoder into the ram
+   // here put the ycrcb (as 18-bit - 8y, 5cr, 5cb) data from the ntsc decoder into the ram
    // this is for 1024 * 788 XGA display
 
    reg [9:0] 	 col = 0;
    reg [9:0] 	 row = 0;
-   reg [7:0] 	 vdata = 0;
+   reg [17:0] 	 vdata = 0;
    reg 		 vwe;
    reg 		 old_dv;
    reg 		 old_frame;	// frames are even / odd interlaced
@@ -65,10 +67,10 @@ module ntsc_to_zbt(clk, vclk, fvh, dv, din, ntsc_addr, ntsc_data, ntsc_we, sw);
 
    always @ (posedge vclk) //LLC1 is reference
      begin
-	old_dv <= dv;
-	vwe <= dv && !fvh[2] & ~old_dv; // if data valid, write it
-	old_frame <= frame;
-	even_odd = frame_edge ? ~even_odd : even_odd;
+	    old_dv <= dv;
+	    vwe <= dv && !fvh[2] & ~old_dv; // if data valid, write it
+	    old_frame <= frame;
+	    even_odd = frame_edge ? ~even_odd : even_odd;
 
 	if (!fvh[2])
 	  begin
@@ -76,14 +78,14 @@ module ntsc_to_zbt(clk, vclk, fvh, dv, din, ntsc_addr, ntsc_data, ntsc_we, sw);
 		    (!fvh[2] && !fvh[1] && dv && (col < 1024)) ? col + 1 : col;
 	     row <= fvh[1] ? ROW_START : 
 		    (!fvh[2] && fvh[0] && (row < 768)) ? row + 1 : row;
-	     vdata <= (dv && !fvh[2]) ? din : vdata;
+	     vdata <= (dv && !fvh[2]) ? {din[23:16], din[15:11], din[7:2]} : vdata;
 	  end
      end
 
    // synchronize with system clock
 
    reg [9:0] x[1:0],y[1:0];
-   reg [7:0] data[1:0];
+   reg [17:0] data[1:0];
    reg       we[1:0];
    reg 	     eo[1:0];
 
@@ -102,21 +104,25 @@ module ntsc_to_zbt(clk, vclk, fvh, dv, din, ntsc_addr, ntsc_data, ntsc_we, sw);
    wire we_edge = we[1] & ~old_we;
    always @(posedge clk) old_we <= we[1];
 
-   // shift each set of four bytes into a large register for the ZBT
+   // shift each pair of 18 bytes into a large register for the ZBT
    
-   reg [31:0] mydata;
+   reg [35:0] mydata;
    always @(posedge clk)
-     if (we_edge)
-       mydata <= { mydata[23:0], data[1] };
+     if (we_edge)  // TODO(lcarter): may need to double effective frequency of we
+       mydata <= { mydata[17:0], data[1] };
    
    // NOTICE : Here we have put 4 pixel delay on mydata. For example, when:
    // (x[1], y[1]) = (60, 80) and eo[1] = 0, then:
    // mydata[31:0] = ( pixel(56,160), pixel(57,160), pixel(58,160), pixel(59,160) )
    // This is the root of the original addressing bug. 
+	
+	// UPDATE (lcarter): Now it's just a 2 pixel delay:
+	// (x[1], y[1]) = (60, 80) and eo[1] = 0:
+	// mydata[35:0] = (pixel(58,160), pixel(59,160))
    
-   
+   // TODO(lcarter): update this to only be two bits (9 bit address space?)
    // NOTICE : Notice that we have decided to store mydata, which
-   //          contains pixel(56,160) to pixel(59,160) in address
+   //          contains pixel(58,160) and pixel(59,160) in address
    //          (0, 160 (10 bits), 60 >> 2 = 15 (8 bits)).
    //
    //          This protocol is dangerous, because it means
