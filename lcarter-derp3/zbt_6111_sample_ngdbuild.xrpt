@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<document OS="lin64" product="ISE" version="10.1.03">
+
+  <!--The data in this file is primarily intended for consumption by Xilinx tools.
+    The structure and the elements are likely to change over the next few releases.
+    This means code written to parse this file will need to be revisited each subsequent release.-->
+
+  <application stringID="NgdBuild" timeStamp="Sun Dec 11 18:12:45 2016">
+    <task stringID="NGDBUILD_REPORT">
+      <section stringID="NGDBUILD_DESIGN_SUMMARY">
+        <item dataType="int" stringID="NGDBUILD_NUM_ERRORS" value="0"/>
+        <item dataType="int" stringID="NGDBUILD_FILTERED_WARNINGS" value="0"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_WARNINGS" value="245"/>
+        <item dataType="int" stringID="NGDBUILD_FILTERED_INFOS" value="0"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_INFOS" value="2"/>
+      </section>
+      <section stringID="NGDBUILD_CORE_SUMMARY">
+        <item COUNT="1" stringID="NGDBUILD_CORE" value="ycrcb2rgb_v1_0, Xilinx CORE Generator 10.1.03_ip3"/>
+        <section stringID="NGDBUILD_CORE_GENERATION_SUMMARY">
+          <section stringID="NGDBUILD_CORE_INSTANCES">
+            <scope stringID="NGDBUILD_CORE_INSTANCE" value="ycrcb2rgb">
+              <item stringID="NGDBUILD_CORE_INFO" type="ycrcb2rgb_v1_0" value="ycrcb2rgb"/>
+              <item c_acoef="91915" c_bcoef="-46819" c_boffset="-15889152" c_ccoef="-22566" c_coef_range="1" c_cwidth="18" c_dcoef="116198" c_fabric_adds="1" c_family_has_mac="0" c_goffset="7865472" c_has_clamp="1" c_has_clip="1" c_iwidth="8" c_mwidth="26" c_owidth="8" c_rgbmax="240" c_rgbmin="16" c_roffset="-12780928" component_name="ycrcb2rgb" stringID="NGDBUILD_CORE_PARAMETERS" value="ycrcb2rgb"/>
+            </scope>
+          </section>
+        </section>
+      </section>
+    </task>
+  </application>
+
+</document>

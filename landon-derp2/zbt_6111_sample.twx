@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE twReport [
+<!ELEMENT twReport (twHead?, (twWarn | twDebug | twInfo)*, twBody, twSum?,
+					twDebug*, twFoot?, twClientInfo?)>
+<!ATTLIST twReport version CDATA "10,4">
+<!ELEMENT twHead (twExecVer?, twCopyright, twCmdLine?, twDesign?, twPCF?, twDevInfo, twRptInfo, twEnvVar*)>
+<!ELEMENT twExecVer (#PCDATA)>
+<!ELEMENT twCopyright (#PCDATA)>
+<!ELEMENT twCmdLine (#PCDATA)>
+<!ELEMENT twDesign (#PCDATA)>
+<!ELEMENT twPCF (#PCDATA)>
+<!ELEMENT twDevInfo (twDevName, twSpeedGrade, twSpeedVer?)>
+<!ELEMENT twDevName (#PCDATA)>
+<!ATTLIST twDevInfo arch CDATA #IMPLIED pkg CDATA #IMPLIED>
+<!ELEMENT twSpeedGrade (#PCDATA)>
+<!ELEMENT twSpeedVer (#PCDATA)>
+<!ELEMENT twRptInfo (twItemLimit?, (twUnconst, twUnconstLimit?)?)>
+<!ATTLIST twRptInfo twRptLvl (twErr | twVerbose | twTerseErr | twSum | twTimeGrp) #REQUIRED>
+<!ATTLIST twRptInfo twAdvRpt  (TRUE | FALSE) "FALSE">
+<!ATTLIST twRptInfo twTimeUnits (twPsec | twNsec | twUsec | twMsec | twSec) "twNsec">
+<!ATTLIST twRptInfo twFreqUnits (twGHz | twMHz | twHz) "twMHz">
+<!ATTLIST twRptInfo twReportMinPaths CDATA #IMPLIED>
+<!ELEMENT twItemLimit (#PCDATA)>
+<!ELEMENT twUnconst EMPTY>
+<!ELEMENT twUnconstLimit (#PCDATA)>
+<!ELEMENT twEnvVar EMPTY>
+<!ATTLIST twEnvVar name CDATA #REQUIRED>
+<!ATTLIST twEnvVar description CDATA #REQUIRED>
+<!ELEMENT twWarn (#PCDATA)>
+<!ELEMENT twInfo (#PCDATA)>
+<!ELEMENT twDebug (#PCDATA)>
+<!ELEMENT twBody (twDerating?, (twSumRpt | twVerboseRpt | twErrRpt | twTerseErrRpt | twTimeGrpRpt), twNonDedClks?)>
+<!ATTLIST twBody twFastPaths CDATA #IMPLIED>
+<!ELEMENT twDerating (twProc?, twTemp?, twVolt?)>
+<!ELEMENT twProc (#PCDATA)>
+<!ELEMENT twTemp (#PCDATA)>
+<!ELEMENT twVolt (#PCDATA)>
+<!ELEMENT twSumRpt (twConstRollupTable*, twConstList?, twConstSummaryTable?, twUnmetConstCnt?, (twWarn | twInfo | twDebug)*, twDataSheet?)>
+<!ELEMENT twErrRpt (twCycles?, (twConst | twTIG |  twConstRollupTable)*, twUnmetConstCnt?, (twWarn | twInfo | twDebug)*, twDataSheet?, twTimeGrp*)>
+<!ELEMENT twTerseErrRpt (twConstList, twUnmetConstCnt?, twDataSheet?)>
+<!ELEMENT twVerboseRpt (twCycles?, (twConst | twTIG | twConstRollupTable)*, twUnmetConstCnt?, (twWarn | twInfo | twDebug)*, twDataSheet?, twTimeGrp*)> 
+<!ELEMENT twCycles (twSigConn+)>
+<!ATTLIST twCycles twNum CDATA #REQUIRED>
+<!ELEMENT twSigConn (twSig, twDriver, twLoad)>
+<!ELEMENT twSig (#PCDATA)>
+<!ELEMENT twDriver (#PCDATA)>
+<!ELEMENT twLoad (#PCDATA)> 
+<!ELEMENT twConst (twConstHead, ((twPathRpt?,twRacePathRpt?, twPathRptBanner?)* |  (twPathRpt*, twRacePathRpt?) |  twNetRpt* | twClkSkewLimit*))>
+<!ATTLIST twConst twConstType (NET | 
+							   NETDELAY | 
+							   NETSKEW | 
+							   PATH |
+							   DEFPERIOD |
+							   UNCONSTPATH |
+							   DEFPATH | 
+							   PATH2SETUP |
+							   UNCONSTPATH2SETUP | 
+							   PATHCLASS | 
+							   PATHDELAY | 
+							   PERIOD |
+							   FREQUENCY |
+							   PATHBLOCK |
+							   OFFSET |
+							   OFFSETIN |
+							   OFFSETINCLOCK | 
+							   UNCONSTOFFSETINCLOCK |
+							   OFFSETINDELAY |
+							   OFFSETINMOD |
+							   OFFSETOUT |
+							   OFFSETOUTCLOCK |
+							   UNCONSTOFFSETOUTCLOCK | 
+							   OFFSETOUTDELAY |
+							   OFFSETOUTMOD| CLOCK_SKEW_LIMITS) #IMPLIED> 
+<!ELEMENT twConstHead (twConstName, twItemCnt, twErrCntSetup, twErrCntEndPt?, twErrCntHold,
+					   twEndPtCnt?,
+					   twPathErrCnt?, (twMinPer| twMaxDel| twMaxFreq| twMaxNetDel| twMaxNetSkew| twMinOff| twMaxOff)*)>
+<!ELEMENT twConstName (#PCDATA)>
+<!ATTLIST twConstName UCFConstName CDATA #IMPLIED>
+<!ATTLIST twConstHead uID CDATA #IMPLIED>
+<!ELEMENT twItemCnt (#PCDATA)>
+<!ELEMENT twErrCnt (#PCDATA)>
+<!ELEMENT twErrCntEndPt (#PCDATA)>
+<!ELEMENT twErrCntSetup (#PCDATA)>
+<!ELEMENT twErrCntHold (#PCDATA)>
+<!ATTLIST twErrCntHold twRaceChecked (TRUE | FALSE) "FALSE">
+<!ELEMENT twEndPtCnt (#PCDATA)>
+<!ELEMENT twPathErrCnt (#PCDATA)>
+<!ELEMENT twMinPer (#PCDATA) >
+<!ELEMENT twFootnote EMPTY>
+<!ATTLIST twFootnote number CDATA #REQUIRED>
+<!ELEMENT twMaxDel (#PCDATA)>
+<!ELEMENT twMaxFreq (#PCDATA)>
+<!ELEMENT twMinOff (#PCDATA)>
+<!ELEMENT twMaxOff (#PCDATA)>
+<!ELEMENT twTIG (twTIGHead, (twPathRpt*,twRacePathRpt?))>
+<!ELEMENT twTIGHead (twTIGName, twInstantiated, twBlocked)>
+<!ELEMENT twTIGName (#PCDATA)>
+<!ELEMENT twInstantiated (#PCDATA)>
+<!ELEMENT twBlocked (#PCDATA)>
+<!ELEMENT twRacePathRpt (twRacePath+)>
+<!ELEMENT twPathRpt (twUnconstPath | twConstPath | twUnconstOffIn | twConstOffIn | twUnconstOffOut | twConstOffOut | twModOffOut)>
+<!ELEMENT twUnconstPath (twTotDel, twSrc, twDest,  (twDel, twSUTime)?, twTotPathDel?, twClkSkew?, tw2Phase?, twClkUncert?, twDetPath?)>
+<!ATTLIST twUnconstPath twDataPathType CDATA #IMPLIED
+						twSimpleMinPath CDATA #IMPLIED>
+<!ELEMENT twTotDel (#PCDATA)>
+<!ELEMENT twSrc (#PCDATA)>
+<!ATTLIST twSrc BELType CDATA #IMPLIED>
+<!ELEMENT twDest (#PCDATA)>
+<!ATTLIST twDest BELType CDATA #IMPLIED>
+<!ELEMENT twDel (#PCDATA)>
+<!ELEMENT twSUTime (#PCDATA)>
+<!ELEMENT twTotPathDel (#PCDATA)>
+<!ELEMENT twClkSkew (#PCDATA)>
+<!ATTLIST twClkSkew dest CDATA #IMPLIED src CDATA #IMPLIED>
+<!ELEMENT twConstPath (twSlack, twSrc, twDest, twTotPathDel?, twClkSkew?, twDelConst, tw2Phase?, twClkUncert?, twDetPath?)>
+<!ATTLIST twConstPath twDataPathType CDATA "twDataPathMaxDelay">
+<!ATTLIST twConstPath constType (period | fromto | unknown) "unknown">
+<!ELEMENT twSlack (#PCDATA)>
+<!ELEMENT twDelConst (#PCDATA)>
+<!ELEMENT tw2Phase EMPTY>
+<!ELEMENT twClkUncert (#PCDATA)>
+<!ATTLIST twClkUncert fSysJit CDATA #IMPLIED  fInputJit CDATA #IMPLIED
+					  fDCMJit CDATA #IMPLIED
+					  fPhaseErr CDATA #IMPLIED
+					  sEqu CDATA #IMPLIED>
+<!ELEMENT twRacePath (twSlack, twSrc, twDest, twClkSkew, twDelConst?, twClkUncert?, twDetPath)>
+<!ELEMENT twPathRptBanner (#PCDATA)>
+<!ATTLIST twPathRptBanner sType CDATA #IMPLIED iPaths CDATA #IMPLIED iCriticalPaths CDATA #IMPLIED>
+<!ELEMENT twUnconstOffIn (twOff, twSrc, twDest, twGuaranteed?, twClkUncert?, (twDataPath, twClkPath)?)>
+<!ATTLIST twUnconstOffIn twDataPathType CDATA #IMPLIED>
+<!ELEMENT twOff (#PCDATA)>
+<!ELEMENT twGuaranteed EMPTY>
+<!ELEMENT twConstOffIn (twSlack, twSrc, twDest, ((twClkDel, twClkSrc, twClkDest) | twGuarInSetup), twOff, twOffSrc, twOffDest, twClkUncert?, (twDataPath, twClkPath)?)>
+<!ATTLIST twConstOffIn twDataPathType CDATA "twDataPathMaxDelay">
+<!ATTLIST twConstOffIn twDurationNotSpecified CDATA #IMPLIED>
+<!ELEMENT twClkDel (#PCDATA)>
+<!ELEMENT twClkSrc (#PCDATA)>
+<!ELEMENT twClkDest (#PCDATA)>
+<!ELEMENT twGuarInSetup (#PCDATA)>
+<!ELEMENT twOffSrc (#PCDATA)>
+<!ELEMENT twOffDest (#PCDATA)>
+<!ELEMENT twUnconstOffOut (twOff, twSrc, twDest, twClkUncert?, (twClkPath, twDataPath)?)>
+<!ATTLIST twUnconstOffOut twDataPathType CDATA #IMPLIED>
+<!ELEMENT twConstOffOut (twSlack, twSrc, twDest, twClkDel, twClkSrc, twClkDest, twDataDel, twDataSrc, twDataDest, twOff, twOffSrc, twOffDest, twClkUncert?, (twClkPath, twDataPath)?)>
+<!ATTLIST twConstOffOut twDataPathType CDATA "twDataPathMaxDelay">
+<!ELEMENT twDataDel (#PCDATA)>
+<!ELEMENT twDataSrc (#PCDATA)>
+<!ELEMENT twDataDest (#PCDATA)>
+<!ELEMENT twModOffOut (twSlack, twDest, twDataDel, twDataSrc, twDataDest, twClkUncert?, twDataPath?)>
+<!ELEMENT twDetPath (twSrc, twDest, twLogLvls, twSrcSite, twSrcClk?, twPathDel*, (twLogDel, twRouteDel, twTotDel)?, twDestClk?, (twPctLog, twPctRoute)?)>
+<!ATTLIST twDetPath maxSiteLen CDATA #IMPLIED>
+<!ELEMENT twDataPath (twSrc, twDest, twLogLvls, twSrcSite, twSrcClk?, twPathDel*, (twLogDel, twRouteDel, twTotDel)?, twDestClk?, (twPctLog, twPctRoute)?)>
+<!ATTLIST twDataPath maxSiteLen CDATA #IMPLIED>
+<!ELEMENT twClkPath (twSrc, twDest, twLogLvls, twSrcSite, twSrcClk?, twPathDel*, (twLogDel, twRouteDel, twTotDel)?, twDestClk?, (twPctLog, twPctRoute)?)>
+<!ATTLIST twClkPath maxSiteLen CDATA #IMPLIED>
+<!ELEMENT twLogLvls (#PCDATA)>
+<!ELEMENT twSrcSite (#PCDATA)>
+<!ELEMENT twSrcClk (#PCDATA)>
+<!ATTLIST twSrcClk twEdge (twRising | twFalling) "twRising">
+<!ATTLIST twSrcClk twArriveTime CDATA #IMPLIED>
+<!ATTLIST twSrcClk twClkRes CDATA #IMPLIED>
+<!ELEMENT twPathDel (twSite, twDelType, twFanCnt?, twDelInfo?, twComp, twNet?, twBEL*)>
+<!ATTLIST twPathDel twHoldTime (TRUE | FALSE) "FALSE">
+<!ELEMENT twDelInfo (#PCDATA)>
+<!ATTLIST twDelInfo twEdge (twRising | twFalling | twIndet) #REQUIRED>
+<!ATTLIST twDelInfo twAcc (twRouted | twEst | twApprox) "twRouted">
+<!ELEMENT twSite (#PCDATA)>
+<!ELEMENT twDelType (#PCDATA)>
+<!ELEMENT twFanCnt (#PCDATA)>
+<!ELEMENT twComp (#PCDATA)>
+<!ELEMENT twNet (#PCDATA)>
+<!ELEMENT twBEL (#PCDATA)>
+<!ELEMENT twLogDel (#PCDATA)>
+<!ELEMENT twRouteDel (#PCDATA)>
+<!ELEMENT twDestClk (#PCDATA)>
+<!ATTLIST twDestClk twEdge (twRising | twFalling) "twRising">
+<!ATTLIST twDestClk twArriveTime CDATA #IMPLIED>
+<!ATTLIST twDestClk twClkRes CDATA #IMPLIED>
+<!ELEMENT twPctLog (#PCDATA)>
+<!ELEMENT twPctRoute (#PCDATA)>
+<!ELEMENT twNetRpt (twDelNet | twSlackNet | twSkewNet)>
+<!ELEMENT twDelNet (twDel, twNet, twDetNet?)>
+<!ELEMENT twSlackNet (twSlack, twNet, twDel, twNotMet?, twTimeConst, twAbsSlack, twDetNet?)>
+<!ELEMENT twTimeConst (#PCDATA)>
+<!ELEMENT twAbsSlack (#PCDATA)>
+<!ELEMENT twSkewNet (twSlack, twNet, twSkew, twNotMet?, twTimeConst, twAbsSlack, twDetSkewNet?)>
+<!ELEMENT twSkew (#PCDATA)>
+<!ELEMENT twDetNet (twNetDel*)>
+<!ELEMENT twNetDel (twSrc, twDest, twNetDelInfo)>
+<!ELEMENT twNetDelInfo (#PCDATA)>
+<!ATTLIST twNetDelInfo twAcc (twRouted | twEst | twApprox) "twRouted">
+<!ELEMENT twDetSkewNet (twNetSkew*)>
+<!ELEMENT twNetSkew (twSrc, twDest, twNetDelInfo, twSkew)>
+<!ELEMENT twClkSkewLimit  EMPTY>
+<!ATTLIST twClkSkewLimit slack CDATA #IMPLIED skew CDATA #IMPLIED arrv1name CDATA #IMPLIED                      arrv1 CDATA #IMPLIED
+		         arrv2name CDATA #IMPLIED arrv2 CDATA #IMPLIED uncert CDATA #IMPLIED>
+<!ELEMENT twConstRollupTable (twConstRollup*)>
+<!ATTLIST twConstRollupTable uID CDATA #IMPLIED>
+<!ELEMENT twConstRollup  EMPTY>
+<!ATTLIST twConstRollup name CDATA #IMPLIED fullName CDATA #IMPLIED type CDATA #IMPLIED                      requirement CDATA #IMPLIED prefType CDATA #IMPLIED actual CDATA #IMPLIED>
+<!ATTLIST twConstRollup  actualRollup CDATA #IMPLIED                      errors CDATA #IMPLIED errorRollup CDATA #IMPLIED items CDATA #IMPLIED                      itemsRollup CDATA #IMPLIED>
+<!ELEMENT twConstList (twConstListItem)*>
+<!ELEMENT twConstListItem (twConstName, twNotMet?, twReqVal?, twActVal?, twLogLvls?)> 
+<!ATTLIST twConstListItem twUnits (twTime | twFreq) "twTime">
+<!ELEMENT twNotMet EMPTY>
+<!ELEMENT twReqVal (#PCDATA)>
+<!ELEMENT twActVal (#PCDATA)>
+<!ELEMENT twConstSummaryTable (twConstStats|twConstSummary)*>
+<!ATTLIST twConstSummaryTable twEmptyConstraints CDATA #IMPLIED>
+<!ELEMENT twConstStats (twConstName)>
+<!ATTLIST twConstStats twUnits (twTime | twFreq) "twTime">
+<!ATTLIST twConstStats twRequired CDATA #IMPLIED>
+<!ATTLIST twConstStats twActual CDATA #IMPLIED>
+<!ATTLIST twConstStats twSlack CDATA #IMPLIED>
+<!ATTLIST twConstStats twLogLvls CDATA #IMPLIED>
+<!ATTLIST twConstStats twErrors CDATA #IMPLIED>
+<!ATTLIST twConstStats twPCFIndex CDATA #IMPLIED>
+<!ATTLIST twConstStats twAbsSlackIndex CDATA #IMPLIED>
+<!ATTLIST twConstStats twTCType CDATA #IMPLIED>
+<!ELEMENT twConstSummary (twConstName, twConstData?, twConstData*)>
+<!ATTLIST twConstSummary PCFIndex CDATA #IMPLIED  slackIndex CDATA #IMPLIED>
+<!ELEMENT twConstData EMPTY>
+<!ATTLIST twConstData type CDATA #IMPLIED  units (MHz | ns) "ns" slack CDATA #IMPLIED
+					  best CDATA #IMPLIED requested CDATA #IMPLIED
+					  errors CDATA #IMPLIED
+					  score CDATA #IMPLIED>
+<!ELEMENT twTimeGrpRpt (twTimeGrp)*>
+<!ELEMENT twTimeGrp (twTimeGrpName, twCompList?, twBELList?, twMacList?, twBlockList?, twSigList?, twPinList?)>
+<!ELEMENT twTimeGrpName (#PCDATA)>
+<!ELEMENT twCompList (twCompName+)>
+<!ELEMENT twCompName (#PCDATA)>
+<!ELEMENT twSigList (twSigName+)>
+<!ELEMENT twSigName (#PCDATA)>
+<!ELEMENT twBELList (twBELName+)>
+<!ELEMENT twBELName (#PCDATA)>
+<!ELEMENT twBlockList (twBlockName+)>
+<!ELEMENT twBlockName (#PCDATA)>
+<!ELEMENT twMacList (twMacName+)>
+<!ELEMENT twMacName (#PCDATA)>
+<!ELEMENT twPinList (twPinName+)>
+<!ELEMENT twPinName (#PCDATA)>
+<!ELEMENT twUnmetConstCnt (#PCDATA)>
+<!ELEMENT twDataSheet (twSUH2ClkList*, (twClk2PadList|twClk2OutList)*, twClk2SUList*, twPad2PadList?, twOffsetTables?)>
+<!ATTLIST twDataSheet twNameLen CDATA #REQUIRED>
+<!ELEMENT twSUH2ClkList (twDest, twSUH2Clk+)>
+<!ATTLIST twSUH2ClkList twDestWidth CDATA #IMPLIED>
+<!ATTLIST twSUH2ClkList twPhaseWidth CDATA #IMPLIED>
+<!ELEMENT twSUH2Clk (twSrc, twSUHTime, twSUHTime?)> 
+<!ELEMENT twSUHTime (twSU2ClkTime?,twH2ClkTime?)>
+<!ATTLIST twSUHTime twInternalClk CDATA #IMPLIED>
+<!ATTLIST twSUHTime twClkPhase CDATA #IMPLIED>
+<!ELEMENT twSU2ClkTime (#PCDATA)>
+<!ATTLIST twSU2ClkTime twEdge (twRising | twFalling | twIndet) #REQUIRED>
+<!ELEMENT twH2ClkTime (#PCDATA)>
+<!ATTLIST twH2ClkTime twEdge (twRising | twFalling | twIndet) #REQUIRED>
+<!ELEMENT twClk2PadList (twSrc, twClk2Pad+)>
+<!ELEMENT twClk2Pad (twDest, twTime)>
+<!ELEMENT twTime (#PCDATA)>
+<!ATTLIST twTime twEdge (twRising | twFalling | twIndet) #REQUIRED>
+<!ELEMENT twClk2OutList (twSrc, twClk2Out+)>
+<!ATTLIST twClk2OutList twDestWidth CDATA #REQUIRED>
+<!ATTLIST twClk2OutList twPhaseWidth CDATA #REQUIRED>
+<!ELEMENT twClk2Out EMPTY>
+<!ATTLIST twClk2Out twOutPad CDATA #REQUIRED>
+<!ATTLIST twClk2Out twMinTime CDATA #REQUIRED>
+<!ATTLIST twClk2Out twMinEdge CDATA #REQUIRED>
+<!ATTLIST twClk2Out twMaxTime CDATA #REQUIRED>
+<!ATTLIST twClk2Out twMaxEdge CDATA #REQUIRED>
+<!ATTLIST twClk2Out twInternalClk CDATA #REQUIRED>
+<!ATTLIST twClk2Out twClkPhase CDATA #REQUIRED>
+<!ELEMENT twClk2SUList (twDest, twClk2SU+)>
+<!ATTLIST twClk2SUList twDestWidth CDATA #IMPLIED>
+<!ELEMENT twClk2SU (twSrc, twRiseRise?, twFallRise?, twRiseFall?, twFallFall?)>
+<!ELEMENT twRiseRise (#PCDATA)>
+<!ELEMENT twFallRise (#PCDATA)>
+<!ELEMENT twRiseFall (#PCDATA)>
+<!ELEMENT twFallFall (#PCDATA)>
+<!ELEMENT twPad2PadList (twPad2Pad+)>
+<!ATTLIST twPad2PadList twSrcWidth CDATA #IMPLIED>
+<!ATTLIST twPad2PadList twDestWidth CDATA #IMPLIED>
+<!ELEMENT twPad2Pad (twSrc, twDest, twDel)>
+<!ELEMENT twOffsetTables (twOffsetInTable*,twOffsetOutTable*)>
+<!ELEMENT twOffsetInTable (twConstName, twOffInTblRow*)>
+<!ATTLIST twOffsetInTable twDestWidth CDATA #IMPLIED>
+<!ATTLIST twOffsetInTable twWorstWindow CDATA #IMPLIED>
+<!ATTLIST twOffsetInTable twWorstSetup CDATA #IMPLIED>
+<!ATTLIST twOffsetInTable twWorstHold CDATA #IMPLIED>
+<!ATTLIST twOffsetInTable twWorstSetupSlack CDATA #IMPLIED>
+<!ATTLIST twOffsetInTable twWorstHoldSlack CDATA #IMPLIED>
+<!ELEMENT twOffsetOutTable (twConstName, twOffOutTblRow*)>
+<!ATTLIST twOffsetOutTable twDestWidth CDATA #IMPLIED>
+<!ATTLIST twOffsetOutTable twMinSlack CDATA #IMPLIED>
+<!ATTLIST twOffsetOutTable twMaxSlack CDATA #IMPLIED>
+<!ATTLIST twOffsetOutTable twRelSkew CDATA #IMPLIED>
+<!ELEMENT twOffInTblRow (twSrc, twSUHSlackTime*)>       
+<!ELEMENT twSUHSlackTime (twSU2ClkTime?,twH2ClkTime?)>
+<!ATTLIST twSUHSlackTime twSetupSlack CDATA #IMPLIED  twHoldSlack CDATA #IMPLIED>
+<!ELEMENT twOffOutTblRow EMPTY>
+<!ATTLIST twOffOutTblRow twOutPad CDATA #IMPLIED>
+<!ATTLIST twOffOutTblRow twSlack CDATA #IMPLIED>
+<!ATTLIST twOffOutTblRow twRelSkew CDATA #IMPLIED>
+<!ELEMENT twNonDedClks ((twWarn | twInfo), twNonDedClk+)>
+<!ELEMENT twNonDedClk (#PCDATA)>
+<!ELEMENT twSum ( twErrCnt, twScore, twConstCov, twStats)>
+<!ELEMENT twScore (#PCDATA)>
+<!ELEMENT twConstCov (twPathCnt, twNetCnt, twConnCnt, twPct?)>
+<!ELEMENT twPathCnt (#PCDATA)>
+<!ELEMENT twNetCnt (#PCDATA)>
+<!ELEMENT twConnCnt (#PCDATA)>
+<!ELEMENT twPct (#PCDATA)>
+<!ELEMENT twStats ( twMinPer?, twFootnote?, twMaxFreq?, twMaxCombDel?, twMaxFromToDel?, twMaxNetDel?, twMaxNetSkew?, twMaxInAfterClk?, twMinInBeforeClk?, twMaxOutBeforeClk?, twMinOutAfterClk?, (twInfo | twWarn)*)>
+<!ELEMENT twMaxCombDel (#PCDATA)>
+<!ELEMENT twMaxFromToDel (#PCDATA)>
+<!ELEMENT twMaxNetDel (#PCDATA)>
+<!ELEMENT twMaxNetSkew (#PCDATA)>
+<!ELEMENT twMaxInAfterClk (#PCDATA)>
+<!ELEMENT twMinInBeforeClk (#PCDATA)>
+<!ELEMENT twMaxOutBeforeClk (#PCDATA)>
+<!ELEMENT twMinOutAfterClk (#PCDATA)>
+<!ELEMENT twFoot (twFootnoteExplanation*, twTimestamp)>
+<!ELEMENT twTimestamp (#PCDATA)>
+<!ELEMENT twFootnoteExplanation EMPTY>
+<!ATTLIST twFootnoteExplanation number CDATA #REQUIRED>
+<!ATTLIST twFootnoteExplanation text CDATA #REQUIRED>
+<!ELEMENT twClientInfo (twClientName, twAttrList?)>
+<!ELEMENT twClientName (#PCDATA)>
+<!ELEMENT twAttrList (twAttrListItem)*>
+<!ELEMENT twAttrListItem (twName, twValue*)>
+<!ELEMENT twName (#PCDATA)>
+<!ELEMENT twValue (#PCDATA)>
+]>
+<twReport><twHead><twExecVer>Release 10.1.03 Trace  (lin64)</twExecVer><twCopyright>Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.</twCopyright><twCmdLine>/afs/csail.mit.edu/proj/redsocs/Xilinx10.1/ISE/bin/lin64/unwrapped/trce -ise
+/afs/athena.mit.edu/user/l/c/lcarter/6.111/6.111-finalproj/landon-derp2/landon-derp2.ise
+-intstyle ise -v 3 -s 4 -xml zbt_6111_sample zbt_6111_sample.ncd -o
+zbt_6111_sample.twr zbt_6111_sample.pcf -ucf labkit.ucf
+
+</twCmdLine><twDesign>zbt_6111_sample.ncd</twDesign><twPCF>zbt_6111_sample.pcf</twPCF><twDevInfo arch="virtex2" pkg="bf957"><twDevName>xc2v6000</twDevName><twSpeedGrade>-4</twSpeedGrade><twSpeedVer>PRODUCTION 1.121 2008-07-25, STEPPING level 0</twSpeedVer></twDevInfo><twRptInfo twRptLvl="twVerbose"></twRptInfo><twEnvVar name="NONE" description="No environment variables were set" /></twHead><twInfo>INFO:Timing:2698 - No timing constraints found, doing default enumeration.</twInfo><twInfo>INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths option. All paths that are not constrained will be reported in the unconstrained paths section(s) of the report.</twInfo><twInfo>INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on a 50 Ohm transmission line loading model.  For the details of this model, and for more information on accounting for different loading conditions, please see the device datasheet.</twInfo><twBody><twVerboseRpt><twDataSheet twNameLen="19"><twSUH2ClkList twDestWidth = "13" twPhaseWidth = "3"><twDest>clock_27mhz</twDest><twSUH2Clk ><twSrc>button_enter</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">4.485</twSU2ClkTime><twH2ClkTime twEdge="twRising">-0.406</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;0&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">0.512</twSU2ClkTime><twH2ClkTime twEdge="twRising">0.037</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;1&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-0.518</twSU2ClkTime><twH2ClkTime twEdge="twRising">1.067</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;2&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-0.401</twSU2ClkTime><twH2ClkTime twEdge="twRising">0.950</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;3&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-0.309</twSU2ClkTime><twH2ClkTime twEdge="twRising">0.858</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;4&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-0.733</twSU2ClkTime><twH2ClkTime twEdge="twRising">1.282</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;5&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-1.439</twSU2ClkTime><twH2ClkTime twEdge="twRising">1.988</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;6&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-1.794</twSU2ClkTime><twH2ClkTime twEdge="twRising">2.343</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;7&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-0.739</twSU2ClkTime><twH2ClkTime twEdge="twRising">1.288</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;18&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-1.237</twSU2ClkTime><twH2ClkTime twEdge="twRising">1.786</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;19&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-0.343</twSU2ClkTime><twH2ClkTime twEdge="twRising">0.892</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;20&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-0.971</twSU2ClkTime><twH2ClkTime twEdge="twRising">1.520</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;21&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-2.196</twSU2ClkTime><twH2ClkTime twEdge="twRising">2.745</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;22&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-1.084</twSU2ClkTime><twH2ClkTime twEdge="twRising">1.633</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;23&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-2.076</twSU2ClkTime><twH2ClkTime twEdge="twRising">2.625</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;24&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-1.345</twSU2ClkTime><twH2ClkTime twEdge="twRising">1.894</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>ram0_data&lt;25&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-1.125</twSU2ClkTime><twH2ClkTime twEdge="twRising">1.674</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>switch&lt;0&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">1.761</twSU2ClkTime><twH2ClkTime twEdge="twRising">0.712</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>switch&lt;1&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">1.963</twSU2ClkTime><twH2ClkTime twEdge="twRising">1.824</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>switch&lt;6&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">-0.045</twSU2ClkTime><twH2ClkTime twEdge="twRising">1.894</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>switch&lt;7&gt;</twSrc><twSUHTime twInternalClk ="clk" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">2.923</twSU2ClkTime><twH2ClkTime twEdge="twRising">3.225</twH2ClkTime></twSUHTime></twSUH2Clk></twSUH2ClkList><twSUH2ClkList twDestWidth = "15" twPhaseWidth = "23"><twDest>tv_in_line_clock1</twDest><twSUH2Clk ><twSrc>tv_in_ycrcb&lt;10&gt;</twSrc><twSUHTime twInternalClk ="tv_in_line_clock1_BUFGP" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">4.964</twSU2ClkTime><twH2ClkTime twEdge="twRising">-0.985</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>tv_in_ycrcb&lt;11&gt;</twSrc><twSUHTime twInternalClk ="tv_in_line_clock1_BUFGP" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">4.521</twSU2ClkTime><twH2ClkTime twEdge="twRising">-0.631</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>tv_in_ycrcb&lt;12&gt;</twSrc><twSUHTime twInternalClk ="tv_in_line_clock1_BUFGP" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">3.599</twSU2ClkTime><twH2ClkTime twEdge="twRising">0.380</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>tv_in_ycrcb&lt;13&gt;</twSrc><twSUHTime twInternalClk ="tv_in_line_clock1_BUFGP" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">3.558</twSU2ClkTime><twH2ClkTime twEdge="twRising">0.877</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>tv_in_ycrcb&lt;14&gt;</twSrc><twSUHTime twInternalClk ="tv_in_line_clock1_BUFGP" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">4.189</twSU2ClkTime><twH2ClkTime twEdge="twRising">1.120</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>tv_in_ycrcb&lt;15&gt;</twSrc><twSUHTime twInternalClk ="tv_in_line_clock1_BUFGP" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">3.405</twSU2ClkTime><twH2ClkTime twEdge="twRising">0.296</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>tv_in_ycrcb&lt;16&gt;</twSrc><twSUHTime twInternalClk ="tv_in_line_clock1_BUFGP" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">2.927</twSU2ClkTime><twH2ClkTime twEdge="twRising">0.192</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>tv_in_ycrcb&lt;17&gt;</twSrc><twSUHTime twInternalClk ="tv_in_line_clock1_BUFGP" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">4.731</twSU2ClkTime><twH2ClkTime twEdge="twRising">0.054</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>tv_in_ycrcb&lt;18&gt;</twSrc><twSUHTime twInternalClk ="tv_in_line_clock1_BUFGP" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">3.729</twSU2ClkTime><twH2ClkTime twEdge="twRising">1.249</twH2ClkTime></twSUHTime></twSUH2Clk><twSUH2Clk ><twSrc>tv_in_ycrcb&lt;19&gt;</twSrc><twSUHTime twInternalClk ="tv_in_line_clock1_BUFGP" twClkPhase ="0.000" ><twSU2ClkTime twEdge="twRising">4.368</twSU2ClkTime><twH2ClkTime twEdge="twRising">0.154</twH2ClkTime></twSUHTime></twSUH2Clk></twSUH2ClkList><twClk2OutList twDestWidth = "18" twPhaseWidth = "12"><twSrc>clock_27mhz</twSrc><twClk2Out  twOutPad = "Q" twMinTime = "14.360" twMinEdge ="twRising" twMaxTime = "14.360" twMaxEdge ="twRising" twInternalClk="rc/ram_clock" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "Q" twMinTime = "14.360" twMinEdge ="twFalling" twMaxTime = "14.360" twMaxEdge ="twFalling" twInternalClk="rc/ram_clock" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "clock_feedback_out" twMinTime = "12.597" twMinEdge ="twRising" twMaxTime = "12.597" twMaxEdge ="twRising" twInternalClk="rc/ram_clock" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "clock_feedback_out" twMinTime = "12.597" twMinEdge ="twFalling" twMaxTime = "12.597" twMaxEdge ="twFalling" twInternalClk="rc/ram_clock" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "disp_ce_b" twMinTime = "11.296" twMinEdge ="twRising" twMaxTime = "11.296" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "disp_clock" twMinTime = "11.289" twMinEdge ="twRising" twMaxTime = "12.575" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "disp_data_out" twMinTime = "11.918" twMinEdge ="twRising" twMaxTime = "11.918" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "disp_reset_b" twMinTime = "11.934" twMinEdge ="twRising" twMaxTime = "11.934" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "disp_rs" twMinTime = "11.315" twMinEdge ="twRising" twMaxTime = "11.315" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "led&lt;1&gt;" twMinTime = "14.840" twMinEdge ="twRising" twMaxTime = "17.465" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "led&lt;2&gt;" twMinTime = "14.350" twMinEdge ="twRising" twMaxTime = "19.639" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "led&lt;3&gt;" twMinTime = "14.960" twMinEdge ="twRising" twMaxTime = "20.771" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "led&lt;4&gt;" twMinTime = "14.258" twMinEdge ="twRising" twMaxTime = "21.307" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "led&lt;5&gt;" twMinTime = "14.892" twMinEdge ="twRising" twMaxTime = "20.460" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "led&lt;6&gt;" twMinTime = "15.701" twMinEdge ="twRising" twMaxTime = "21.118" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "led&lt;7&gt;" twMinTime = "15.364" twMinEdge ="twRising" twMaxTime = "21.290" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;0&gt;" twMinTime = "12.391" twMinEdge ="twRising" twMaxTime = "17.686" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;1&gt;" twMinTime = "13.486" twMinEdge ="twRising" twMaxTime = "18.885" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;2&gt;" twMinTime = "11.893" twMinEdge ="twRising" twMaxTime = "18.259" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;3&gt;" twMinTime = "13.385" twMinEdge ="twRising" twMaxTime = "18.999" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;4&gt;" twMinTime = "11.476" twMinEdge ="twRising" twMaxTime = "18.060" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;5&gt;" twMinTime = "12.571" twMinEdge ="twRising" twMaxTime = "18.353" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;6&gt;" twMinTime = "12.372" twMinEdge ="twRising" twMaxTime = "18.600" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;7&gt;" twMinTime = "13.134" twMinEdge ="twRising" twMaxTime = "19.487" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;8&gt;" twMinTime = "13.078" twMinEdge ="twRising" twMaxTime = "19.613" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;9&gt;" twMinTime = "13.106" twMinEdge ="twRising" twMaxTime = "16.576" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;10&gt;" twMinTime = "12.768" twMinEdge ="twRising" twMaxTime = "16.295" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;11&gt;" twMinTime = "12.439" twMinEdge ="twRising" twMaxTime = "17.667" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;12&gt;" twMinTime = "12.148" twMinEdge ="twRising" twMaxTime = "16.754" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;13&gt;" twMinTime = "12.797" twMinEdge ="twRising" twMaxTime = "18.053" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;14&gt;" twMinTime = "12.446" twMinEdge ="twRising" twMaxTime = "18.255" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;15&gt;" twMinTime = "12.413" twMinEdge ="twRising" twMaxTime = "18.140" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;16&gt;" twMinTime = "13.333" twMinEdge ="twRising" twMaxTime = "18.186" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;17&gt;" twMinTime = "13.580" twMinEdge ="twRising" twMaxTime = "19.767" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_address&lt;18&gt;" twMinTime = "14.705" twMinEdge ="twRising" twMaxTime = "20.631" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_clk" twMinTime = "12.494" twMinEdge ="twRising" twMaxTime = "12.494" twMaxEdge ="twRising" twInternalClk="rc/ram_clock" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_clk" twMinTime = "12.494" twMinEdge ="twFalling" twMaxTime = "12.494" twMaxEdge ="twFalling" twInternalClk="rc/ram_clock" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;0&gt;" twMinTime = "10.544" twMinEdge ="twRising" twMaxTime = "11.308" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;1&gt;" twMinTime = "10.222" twMinEdge ="twRising" twMaxTime = "11.350" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;2&gt;" twMinTime = "11.177" twMinEdge ="twRising" twMaxTime = "11.350" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;3&gt;" twMinTime = "10.542" twMinEdge ="twRising" twMaxTime = "11.356" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;4&gt;" twMinTime = "11.299" twMinEdge ="twRising" twMaxTime = "11.352" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;5&gt;" twMinTime = "10.236" twMinEdge ="twRising" twMaxTime = "11.784" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;6&gt;" twMinTime = "10.473" twMinEdge ="twRising" twMaxTime = "10.996" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;7&gt;" twMinTime = "10.585" twMinEdge ="twRising" twMaxTime = "11.790" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;8&gt;" twMinTime = "10.941" twMinEdge ="twRising" twMaxTime = "10.941" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;9&gt;" twMinTime = "11.616" twMinEdge ="twRising" twMaxTime = "11.616" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;10&gt;" twMinTime = "12.064" twMinEdge ="twRising" twMaxTime = "12.064" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;11&gt;" twMinTime = "11.628" twMinEdge ="twRising" twMaxTime = "11.628" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;12&gt;" twMinTime = "10.832" twMinEdge ="twRising" twMaxTime = "11.295" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;13&gt;" twMinTime = "11.148" twMinEdge ="twRising" twMaxTime = "12.066" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;14&gt;" twMinTime = "11.298" twMinEdge ="twRising" twMaxTime = "11.324" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;15&gt;" twMinTime = "10.673" twMinEdge ="twRising" twMaxTime = "11.324" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;16&gt;" twMinTime = "10.967" twMinEdge ="twRising" twMaxTime = "10.967" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;17&gt;" twMinTime = "11.443" twMinEdge ="twRising" twMaxTime = "11.443" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;18&gt;" twMinTime = "10.179" twMinEdge ="twRising" twMaxTime = "12.201" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;19&gt;" twMinTime = "10.529" twMinEdge ="twRising" twMaxTime = "11.006" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;20&gt;" twMinTime = "10.604" twMinEdge ="twRising" twMaxTime = "12.205" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;21&gt;" twMinTime = "10.532" twMinEdge ="twRising" twMaxTime = "11.212" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;22&gt;" twMinTime = "10.663" twMinEdge ="twRising" twMaxTime = "11.937" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;23&gt;" twMinTime = "9.935" twMinEdge ="twRising" twMaxTime = "11.220" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;24&gt;" twMinTime = "9.911" twMinEdge ="twRising" twMaxTime = "11.941" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;25&gt;" twMinTime = "10.544" twMinEdge ="twRising" twMaxTime = "11.278" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;26&gt;" twMinTime = "10.938" twMinEdge ="twRising" twMaxTime = "10.938" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;27&gt;" twMinTime = "11.173" twMinEdge ="twRising" twMaxTime = "11.173" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;28&gt;" twMinTime = "10.466" twMinEdge ="twRising" twMaxTime = "11.179" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;29&gt;" twMinTime = "11.117" twMinEdge ="twRising" twMaxTime = "11.263" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;30&gt;" twMinTime = "10.257" twMinEdge ="twRising" twMaxTime = "11.201" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;31&gt;" twMinTime = "10.575" twMinEdge ="twRising" twMaxTime = "11.255" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;32&gt;" twMinTime = "11.628" twMinEdge ="twRising" twMaxTime = "11.628" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;33&gt;" twMinTime = "11.615" twMinEdge ="twRising" twMaxTime = "11.615" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;34&gt;" twMinTime = "11.274" twMinEdge ="twRising" twMaxTime = "11.274" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_data&lt;35&gt;" twMinTime = "11.110" twMinEdge ="twRising" twMaxTime = "11.110" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "ram0_we_b" twMinTime = "15.671" twMinEdge ="twRising" twMaxTime = "16.166" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_blank_b" twMinTime = "13.224" twMinEdge ="twRising" twMaxTime = "13.224" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_blue&lt;0&gt;" twMinTime = "15.269" twMinEdge ="twRising" twMaxTime = "15.269" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_blue&lt;1&gt;" twMinTime = "14.962" twMinEdge ="twRising" twMaxTime = "14.962" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_blue&lt;2&gt;" twMinTime = "14.078" twMinEdge ="twRising" twMaxTime = "14.078" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_blue&lt;3&gt;" twMinTime = "13.455" twMinEdge ="twRising" twMaxTime = "13.455" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_blue&lt;4&gt;" twMinTime = "14.979" twMinEdge ="twRising" twMaxTime = "14.979" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_blue&lt;5&gt;" twMinTime = "15.065" twMinEdge ="twRising" twMaxTime = "15.065" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_blue&lt;6&gt;" twMinTime = "13.020" twMinEdge ="twRising" twMaxTime = "13.020" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_blue&lt;7&gt;" twMinTime = "13.466" twMinEdge ="twRising" twMaxTime = "13.466" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_green&lt;0&gt;" twMinTime = "14.418" twMinEdge ="twRising" twMaxTime = "14.418" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_green&lt;1&gt;" twMinTime = "15.250" twMinEdge ="twRising" twMaxTime = "15.250" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_green&lt;2&gt;" twMinTime = "13.980" twMinEdge ="twRising" twMaxTime = "13.980" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_green&lt;3&gt;" twMinTime = "14.019" twMinEdge ="twRising" twMaxTime = "14.019" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_green&lt;4&gt;" twMinTime = "18.989" twMinEdge ="twRising" twMaxTime = "18.989" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_green&lt;5&gt;" twMinTime = "18.174" twMinEdge ="twRising" twMaxTime = "18.174" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_green&lt;6&gt;" twMinTime = "18.577" twMinEdge ="twRising" twMaxTime = "18.577" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_green&lt;7&gt;" twMinTime = "18.096" twMinEdge ="twRising" twMaxTime = "18.096" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_hsync" twMinTime = "12.968" twMinEdge ="twRising" twMaxTime = "12.968" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_red&lt;0&gt;" twMinTime = "15.554" twMinEdge ="twRising" twMaxTime = "15.554" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_red&lt;1&gt;" twMinTime = "14.495" twMinEdge ="twRising" twMaxTime = "14.495" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_red&lt;2&gt;" twMinTime = "15.319" twMinEdge ="twRising" twMaxTime = "15.319" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_red&lt;3&gt;" twMinTime = "14.944" twMinEdge ="twRising" twMaxTime = "14.944" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_red&lt;4&gt;" twMinTime = "19.574" twMinEdge ="twRising" twMaxTime = "19.574" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_red&lt;5&gt;" twMinTime = "17.506" twMinEdge ="twRising" twMaxTime = "17.506" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_red&lt;6&gt;" twMinTime = "19.151" twMinEdge ="twRising" twMaxTime = "19.151" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_red&lt;7&gt;" twMinTime = "18.989" twMinEdge ="twRising" twMaxTime = "18.989" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out><twClk2Out  twOutPad = "vga_out_vsync" twMinTime = "13.980" twMinEdge ="twRising" twMaxTime = "13.980" twMaxEdge ="twRising" twInternalClk="clk" twClkPhase="0.000" ></twClk2Out></twClk2OutList><twClk2SUList twDestWidth = "17"><twDest>clock_27mhz</twDest><twClk2SU><twSrc>clock_27mhz</twSrc><twRiseRise>9.869</twRiseRise></twClk2SU><twClk2SU><twSrc>tv_in_line_clock1</twSrc><twRiseRise>3.243</twRiseRise></twClk2SU></twClk2SUList><twClk2SUList twDestWidth = "17"><twDest>tv_in_line_clock1</twDest><twClk2SU><twSrc>clock_27mhz</twSrc><twRiseRise>8.861</twRiseRise></twClk2SU><twClk2SU><twSrc>tv_in_line_clock1</twSrc><twRiseRise>8.252</twRiseRise></twClk2SU></twClk2SUList><twPad2PadList twSrcWidth = "11" twDestWidth = "19"><twPad2Pad><twSrc>clock_27mhz</twSrc><twDest>tv_in_clock</twDest><twDel>18.805</twDel></twPad2Pad><twPad2Pad><twSrc>clock_27mhz</twSrc><twDest>vga_out_pixel_clock</twDest><twDel>11.479</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;0&gt;</twSrc><twDest>led&lt;0&gt;</twDest><twDel>6.389</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>led&lt;2&gt;</twDest><twDel>13.735</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>led&lt;3&gt;</twDest><twDel>13.545</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>led&lt;4&gt;</twDest><twDel>14.892</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>led&lt;5&gt;</twDest><twDel>14.658</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>led&lt;6&gt;</twDest><twDel>13.793</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>led&lt;7&gt;</twDest><twDel>14.239</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;0&gt;</twDest><twDel>10.950</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;1&gt;</twDest><twDel>11.532</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;2&gt;</twDest><twDel>10.919</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;3&gt;</twDest><twDel>11.788</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;4&gt;</twDest><twDel>10.598</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;5&gt;</twDest><twDel>10.796</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;6&gt;</twDest><twDel>11.245</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;7&gt;</twDest><twDel>11.556</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;8&gt;</twDest><twDel>11.526</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;9&gt;</twDest><twDel>12.700</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;10&gt;</twDest><twDel>11.501</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;11&gt;</twDest><twDel>11.640</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;12&gt;</twDest><twDel>10.871</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;13&gt;</twDest><twDel>12.182</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;14&gt;</twDest><twDel>11.435</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;15&gt;</twDest><twDel>11.940</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;16&gt;</twDest><twDel>11.309</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;17&gt;</twDest><twDel>12.476</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_address&lt;18&gt;</twDest><twDel>13.264</twDel></twPad2Pad><twPad2Pad><twSrc>switch&lt;7&gt;</twSrc><twDest>ram0_we_b</twDest><twDel>10.455</twDel></twPad2Pad></twPad2PadList><twOffsetTables></twOffsetTables></twDataSheet></twVerboseRpt></twBody><twFoot><twTimestamp>Sun Dec 11 16:57:38 2016 </twTimestamp></twFoot><twClientInfo><twClientName>Trace</twClientName><twAttrList><twAttrListItem><twName>Trace Settings</twName><twValue>
+
+Peak Memory Usage: 353 MB
+</twValue></twAttrListItem></twAttrList></twClientInfo></twReport>

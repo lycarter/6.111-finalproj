@@ -1,0 +1,12 @@
+# Output products list for <ycrcb2rgb>
+ycrcb2rgb.asy
+ycrcb2rgb.ngc
+ycrcb2rgb.sym
+ycrcb2rgb.v
+ycrcb2rgb.veo
+ycrcb2rgb.vhd
+ycrcb2rgb.vho
+ycrcb2rgb.xco
+ycrcb2rgb_flist.txt
+ycrcb2rgb_xmdf.tcl
+ycrcb2rgb_ycrcb2rgb_v1_0_xst_1.ngc_xst.xrpt

@@ -1,0 +1,9 @@
+//! **************************************************************************
+// Written by: Map K.39 on Thu Dec 08 14:34:18 2016
+//! **************************************************************************
+
+SCHEMATIC START;
+NET "tv_in_line_clock1_BUFGP/IBUFG" BEL "tv_in_line_clock1_BUFGP/BUFG.GCLKMUX"
+        USELOCALCONNECT;
+SCHEMATIC END;
+

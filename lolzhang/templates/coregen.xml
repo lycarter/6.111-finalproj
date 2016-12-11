@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RootFolder label="COREGEN" treetype="folder" language="COREGEN">
+	<Folder label="VERILOG Component Instantiation" treetype="folder">
+		<Template label="labkit_image" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+labkit_image YourInstanceName (
+    .clka(clka),
+    .addra(addra), // Bus [12 : 0] 
+    .douta(douta)); // Bus [7 : 0] 
+
+ 
+		</Template>
+		<Template label="labkit_image_red" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+labkit_image_red YourInstanceName (
+    .clka(clka),
+    .addra(addra), // Bus [7 : 0] 
+    .douta(douta)); // Bus [7 : 0] 
+
+ 
+		</Template>
+		<Template label="labkit_image_green" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+labkit_image_green YourInstanceName (
+    .clka(clka),
+    .addra(addra), // Bus [7 : 0] 
+    .douta(douta)); // Bus [7 : 0] 
+
+ 
+		</Template>
+		<Template label="labkit_image_blue" treetype="template">
+ 
+ 
+// The following must be inserted into your Verilog file for this
+// core to be instantiated. Change the instance name and port connections
+// (in parentheses) to your own signal names.
+ 
+labkit_image_blue YourInstanceName (
+    .clka(clka),
+    .addra(addra), // Bus [7 : 0] 
+    .douta(douta)); // Bus [7 : 0] 
+
+ 
+		</Template>
+	</Folder>
+	<Folder label="VHDL Component Instantiation" treetype="folder">
+		<Template label="labkit_image" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component labkit_image
+    port (
+    clka: IN std_logic;
+    addra: IN std_logic_VECTOR(12 downto 0);
+    douta: OUT std_logic_VECTOR(7 downto 0));
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : labkit_image
+        port map (
+            clka =&gt; clka,
+            addra =&gt; addra,
+            douta =&gt; douta);
+ 
+		</Template>
+		<Template label="labkit_image_red" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component labkit_image_red
+    port (
+    clka: IN std_logic;
+    addra: IN std_logic_VECTOR(7 downto 0);
+    douta: OUT std_logic_VECTOR(7 downto 0));
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : labkit_image_red
+        port map (
+            clka =&gt; clka,
+            addra =&gt; addra,
+            douta =&gt; douta);
+ 
+		</Template>
+		<Template label="labkit_image_green" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component labkit_image_green
+    port (
+    clka: IN std_logic;
+    addra: IN std_logic_VECTOR(7 downto 0);
+    douta: OUT std_logic_VECTOR(7 downto 0));
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : labkit_image_green
+        port map (
+            clka =&gt; clka,
+            addra =&gt; addra,
+            douta =&gt; douta);
+ 
+		</Template>
+		<Template label="labkit_image_blue" treetype="template">
+ 
+ 
+-- The following code must appear in the VHDL architecture header:
+ 
+component labkit_image_blue
+    port (
+    clka: IN std_logic;
+    addra: IN std_logic_VECTOR(7 downto 0);
+    douta: OUT std_logic_VECTOR(7 downto 0));
+end component;
+
+
+ 
+-------------------------------------------------------------
+ 
+-- The following code must appear in the VHDL architecture body.
+-- Substitute your own instance name and net names.
+ 
+your_instance_name : labkit_image_blue
+        port map (
+            clka =&gt; clka,
+            addra =&gt; addra,
+            douta =&gt; douta);
+ 
+		</Template>
+	</Folder>
+</RootFolder>
