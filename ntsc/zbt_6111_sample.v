@@ -398,6 +398,8 @@ module zbt_6111_sample(beep, audio_reset_b,
 */
 	wire locked;
 
+   wire clk;
+
 	//assign clock_feedback_out = 0; // gph 2011-Nov-10
    
    ramclock rc(.ref_clock(clock_65mhz), .fpga_clock(clk),
