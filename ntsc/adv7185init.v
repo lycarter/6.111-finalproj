@@ -342,7 +342,7 @@
 
 
 module adv7185init (reset, clock_27mhz, source, tv_in_reset_b, 
-		    tv_in_i2c_clock, tv_in_i2c_data);
+        tv_in_i2c_clock, tv_in_i2c_data);
 
    input reset;
    input clock_27mhz;
@@ -381,17 +381,17 @@ module adv7185init (reset, clock_27mhz, source, tv_in_reset_b,
    
    initial
      begin
-	clk_div_count <= 8'h00;
-	// synthesis attribute init of clk_div_count is "00";
-	clock_slow <= 1'b0;
-	// synthesis attribute init of clock_slow is "0";
+  clk_div_count <= 8'h00;
+  // synthesis attribute init of clk_div_count is "00";
+  clock_slow <= 1'b0;
+  // synthesis attribute init of clock_slow is "0";
      end
    
    always @(posedge clock_27mhz)
      if (clk_div_count == 26)
        begin
-	  clock_slow <= ~clock_slow;
-	  clk_div_count <= 0;
+    clock_slow <= ~clock_slow;
+    clk_div_count <= 0;
        end
      else
        clk_div_count <= clk_div_count+1;
@@ -413,8 +413,8 @@ module adv7185init (reset, clock_27mhz, source, tv_in_reset_b,
    wire ack, idle;
    
    i2c i2c(.reset(reset_slow), .clock4x(clock_slow), .data(data), .load(load),
-	   .ack(ack), .idle(idle), .scl(tv_in_i2c_clock),
-	   .sda(tv_in_i2c_data));
+     .ack(ack), .idle(idle), .scl(tv_in_i2c_clock),
+     .sda(tv_in_i2c_data));
    
    //
    // State machine
@@ -426,254 +426,254 @@ module adv7185init (reset, clock_27mhz, source, tv_in_reset_b,
    
    always @(posedge clock_slow)
       if (reset_slow)
-	begin
-	   state <= 0;
-	   load <= 0;
-	   tv_in_reset_b <= 0;
-	   old_source <= 0;
-	end
+  begin
+     state <= 0;
+     load <= 0;
+     tv_in_reset_b <= 0;
+     old_source <= 0;
+  end
       else
-	case (state)
-	  8'h00:
-	    begin
-	       // Assert reset
-	       load <= 1'b0;
-	       tv_in_reset_b <= 1'b0;
-	       if (!ack)
-		 state <= state+1;
-	    end
-	  8'h01:
-	    state <= state+1;
-	  8'h02:
-	    begin
-	       // Release reset
-	       tv_in_reset_b <= 1'b1;
-	       state <= state+1;
-	      	    end
-	  8'h03:
-	    begin
-	       // Send ADV7185 address
-	       data <= 8'h8A;
-	       load <= 1'b1;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h04:
-	    begin
-	       // Send subaddress of first register
-	       data <= 8'h00;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h05:
-	    begin
-	       // Write to register 0
-	       data <= `ADV7185_REGISTER_0 | {5'h00, {3{source}}};
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h06:
-	    begin
-	       // Write to register 1
-	       data <= `ADV7185_REGISTER_1;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h07:
-	    begin
-	       // Write to register 2
-	       data <= `ADV7185_REGISTER_2;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h08:
-	    begin
-	       // Write to register 3
-	       data <= `ADV7185_REGISTER_3;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h09:
-	    begin
-	       // Write to register 4
-	       data <= `ADV7185_REGISTER_4;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h0A:
-	    begin
-	       // Write to register 5
-	       data <= `ADV7185_REGISTER_5;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h0B:
-	    begin
-	       // Write to register 6
-	       data <= 8'h00; // Reserved register, write all zeros
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h0C:
-	    begin
-	       // Write to register 7
-	       data <= `ADV7185_REGISTER_7;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h0D:
-	    begin
-	       // Write to register 8
-	       data <= `ADV7185_REGISTER_8;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h0E:
-	    begin
-	       // Write to register 9
-	       data <= `ADV7185_REGISTER_9;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h0F: begin
-	     // Write to register A
-	     data <= `ADV7185_REGISTER_A;
-	   if (ack)
-	     state <= state+1;
-	  end
-	  8'h10:
-	    begin
-	       // Write to register B
-	       data <= `ADV7185_REGISTER_B;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h11:
-	    begin
-	       // Write to register C
-	       data <= `ADV7185_REGISTER_C;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h12:
-	    begin
-	       // Write to register D
-	       data <= `ADV7185_REGISTER_D;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h13:
-	    begin
-	       // Write to register E
-	       data <= `ADV7185_REGISTER_E;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h14:
-	    begin
-	       // Write to register F
-	       data <= `ADV7185_REGISTER_F;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h15:
-	    begin
-	       // Wait for I2C transmitter to finish
-	       load <= 1'b0;
-	       if (idle)
-		 state <= state+1;
-	    end
-	  8'h16:
-	    begin
-	       // Write address
-	       data <= 8'h8A;
-	       load <= 1'b1;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h17:
-	    begin
-	       data <= 8'h33;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h18:
-	    begin
-	       data <= `ADV7185_REGISTER_33;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h19:
-	    begin
-	       load <= 1'b0;
-	       if (idle)
-		 state <= state+1;
-	    end
-	  
-	  8'h1A: begin
-	     data <= 8'h8A;
-	     load <= 1'b1;
-	     if (ack)
-	       state <= state+1;
-	  end
-	  8'h1B:
-	    begin
-	       data <= 8'h33;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h1C:
-	    begin
-	       load <= 1'b0;
-	       if (idle)
-		 state <= state+1;
-	    end
-	  8'h1D:
-	    begin
-	       load <= 1'b1;
-	       data <= 8'h8B;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h1E:
-	    begin
-	       data <= 8'hFF;
-	       if (ack)
-		 state <= state+1;
-	    end
-	  8'h1F:
-	    begin
-	       load <= 1'b0;
-	       if (idle)
-		 state <= state+1;
-	    end
-	  8'h20:
-	    begin
-	       // Idle
-	       if (old_source != source) state <= state+1;
-	       old_source <= source;
-	    end
-	  8'h21: begin
-	     // Send ADV7185 address
-	     data <= 8'h8A;
-	     load <= 1'b1;
-	     if (ack) state <= state+1;
-	  end
-	  8'h22: begin
-	     // Send subaddress of register 0
-	     data <= 8'h00;
-	     if (ack) state <= state+1;
-	  end
-	  8'h23: begin
-	     // Write to register 0
-	     data <= `ADV7185_REGISTER_0 | {5'h00, {3{source}}};
-	     if (ack) state <= state+1;
-	  end
-	  8'h24: begin
-	     // Wait for I2C transmitter to finish
-	     load <= 1'b0;
-	     if (idle) state <= 8'h20;
-	  end
+  case (state)
+    8'h00:
+      begin
+         // Assert reset
+         load <= 1'b0;
+         tv_in_reset_b <= 1'b0;
+         if (!ack)
+     state <= state+1;
+      end
+    8'h01:
+      state <= state+1;
+    8'h02:
+      begin
+         // Release reset
+         tv_in_reset_b <= 1'b1;
+         state <= state+1;
+              end
+    8'h03:
+      begin
+         // Send ADV7185 address
+         data <= 8'h8A;
+         load <= 1'b1;
+         if (ack)
+     state <= state+1;
+      end
+    8'h04:
+      begin
+         // Send subaddress of first register
+         data <= 8'h00;
+         if (ack)
+     state <= state+1;
+      end
+    8'h05:
+      begin
+         // Write to register 0
+         data <= `ADV7185_REGISTER_0 | {5'h00, {3{source}}};
+         if (ack)
+     state <= state+1;
+      end
+    8'h06:
+      begin
+         // Write to register 1
+         data <= `ADV7185_REGISTER_1;
+         if (ack)
+     state <= state+1;
+      end
+    8'h07:
+      begin
+         // Write to register 2
+         data <= `ADV7185_REGISTER_2;
+         if (ack)
+     state <= state+1;
+      end
+    8'h08:
+      begin
+         // Write to register 3
+         data <= `ADV7185_REGISTER_3;
+         if (ack)
+     state <= state+1;
+      end
+    8'h09:
+      begin
+         // Write to register 4
+         data <= `ADV7185_REGISTER_4;
+         if (ack)
+     state <= state+1;
+      end
+    8'h0A:
+      begin
+         // Write to register 5
+         data <= `ADV7185_REGISTER_5;
+         if (ack)
+     state <= state+1;
+      end
+    8'h0B:
+      begin
+         // Write to register 6
+         data <= 8'h00; // Reserved register, write all zeros
+         if (ack)
+     state <= state+1;
+      end
+    8'h0C:
+      begin
+         // Write to register 7
+         data <= `ADV7185_REGISTER_7;
+         if (ack)
+     state <= state+1;
+      end
+    8'h0D:
+      begin
+         // Write to register 8
+         data <= `ADV7185_REGISTER_8;
+         if (ack)
+     state <= state+1;
+      end
+    8'h0E:
+      begin
+         // Write to register 9
+         data <= `ADV7185_REGISTER_9;
+         if (ack)
+     state <= state+1;
+      end
+    8'h0F: begin
+       // Write to register A
+       data <= `ADV7185_REGISTER_A;
+     if (ack)
+       state <= state+1;
+    end
+    8'h10:
+      begin
+         // Write to register B
+         data <= `ADV7185_REGISTER_B;
+         if (ack)
+     state <= state+1;
+      end
+    8'h11:
+      begin
+         // Write to register C
+         data <= `ADV7185_REGISTER_C;
+         if (ack)
+     state <= state+1;
+      end
+    8'h12:
+      begin
+         // Write to register D
+         data <= `ADV7185_REGISTER_D;
+         if (ack)
+     state <= state+1;
+      end
+    8'h13:
+      begin
+         // Write to register E
+         data <= `ADV7185_REGISTER_E;
+         if (ack)
+     state <= state+1;
+      end
+    8'h14:
+      begin
+         // Write to register F
+         data <= `ADV7185_REGISTER_F;
+         if (ack)
+     state <= state+1;
+      end
+    8'h15:
+      begin
+         // Wait for I2C transmitter to finish
+         load <= 1'b0;
+         if (idle)
+     state <= state+1;
+      end
+    8'h16:
+      begin
+         // Write address
+         data <= 8'h8A;
+         load <= 1'b1;
+         if (ack)
+     state <= state+1;
+      end
+    8'h17:
+      begin
+         data <= 8'h33;
+         if (ack)
+     state <= state+1;
+      end
+    8'h18:
+      begin
+         data <= `ADV7185_REGISTER_33;
+         if (ack)
+     state <= state+1;
+      end
+    8'h19:
+      begin
+         load <= 1'b0;
+         if (idle)
+     state <= state+1;
+      end
+    
+    8'h1A: begin
+       data <= 8'h8A;
+       load <= 1'b1;
+       if (ack)
+         state <= state+1;
+    end
+    8'h1B:
+      begin
+         data <= 8'h33;
+         if (ack)
+     state <= state+1;
+      end
+    8'h1C:
+      begin
+         load <= 1'b0;
+         if (idle)
+     state <= state+1;
+      end
+    8'h1D:
+      begin
+         load <= 1'b1;
+         data <= 8'h8B;
+         if (ack)
+     state <= state+1;
+      end
+    8'h1E:
+      begin
+         data <= 8'hFF;
+         if (ack)
+     state <= state+1;
+      end
+    8'h1F:
+      begin
+         load <= 1'b0;
+         if (idle)
+     state <= state+1;
+      end
+    8'h20:
+      begin
+         // Idle
+         if (old_source != source) state <= state+1;
+         old_source <= source;
+      end
+    8'h21: begin
+       // Send ADV7185 address
+       data <= 8'h8A;
+       load <= 1'b1;
+       if (ack) state <= state+1;
+    end
+    8'h22: begin
+       // Send subaddress of register 0
+       data <= 8'h00;
+       if (ack) state <= state+1;
+    end
+    8'h23: begin
+       // Write to register 0
+       data <= `ADV7185_REGISTER_0 | {5'h00, {3{source}}};
+       if (ack) state <= state+1;
+    end
+    8'h24: begin
+       // Wait for I2C transmitter to finish
+       load <= 1'b0;
+       if (idle) state <= 8'h20;
+    end
        endcase
    
 endmodule

@@ -29,14 +29,14 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 module display_16hex (reset, clock_27mhz, data_in, 
-		disp_blank, disp_clock, disp_rs, disp_ce_b,
-		disp_reset_b, disp_data_out);
+    disp_blank, disp_clock, disp_rs, disp_ce_b,
+    disp_reset_b, disp_data_out);
 
    input reset, clock_27mhz;    // clock and reset (active high reset)
-   input [63:0] data_in;		// 16 hex nibbles to display
+   input [63:0] data_in;    // 16 hex nibbles to display
    
    output disp_blank, disp_clock, disp_data_out, disp_rs, disp_ce_b, 
-	  disp_reset_b;
+    disp_reset_b;
    
    reg disp_data_out, disp_rs, disp_ce_b, disp_reset_b;
    
@@ -50,15 +50,15 @@ module display_16hex (reset, clock_27mhz, data_in,
    
    reg [5:0] count;
    reg [7:0] reset_count;
-//   reg 	     old_clock;
+//   reg       old_clock;
    wire      dreset;
    wire      clock = (count<27) ? 0 : 1;
 
    always @(posedge clock_27mhz)
      begin
-	count <= reset ? 0 : (count==53 ? 0 : count+1);
-	reset_count <= reset ? 100 : ((reset_count==0) ? 0 : reset_count-1);
-//	old_clock <= clock;
+  count <= reset ? 0 : (count==53 ? 0 : count+1);
+  reset_count <= reset ? 100 : ((reset_count==0) ? 0 : reset_count-1);
+//  old_clock <= clock;
      end
 
    assign dreset = (reset_count != 0);
@@ -72,12 +72,12 @@ module display_16hex (reset, clock_27mhz, data_in,
    //
    ////////////////////////////////////////////////////////////////////////////
       
-   reg [7:0] state;		// FSM state
-   reg [9:0] dot_index;		// index to current dot being clocked out
-   reg [31:0] control;		// control register
-   reg [3:0] char_index;	// index of current character
-   reg [39:0] dots;		// dots for a single digit 
-   reg [3:0] nibble;		// hex nibble of current character
+   reg [7:0] state;   // FSM state
+   reg [9:0] dot_index;   // index to current dot being clocked out
+   reg [31:0] control;    // control register
+   reg [3:0] char_index;  // index of current character
+   reg [39:0] dots;   // dots for a single digit 
+   reg [3:0] nibble;    // hex nibble of current character
    reg [63:0] data;
    
    assign disp_blank = 1'b0; // low <= not blanked
@@ -85,114 +85,114 @@ module display_16hex (reset, clock_27mhz, data_in,
    always @(posedge clock_27mhz)
      if (clock_tick) 
        begin
-	  if (dreset)
-	    begin
-	       state <= 0;
-	       dot_index <= 0;
-	       control <= 32'h7F7F7F7F;
-	    end
-	  else
-	    casex (state)
-	      8'h00:
-		begin
-		   // Reset displays
-		   disp_data_out <= 1'b0; 
-		   disp_rs <= 1'b0; // dot register
-		   disp_ce_b <= 1'b1;
-		   disp_reset_b <= 1'b0;	     
-		   dot_index <= 0;
-		   state <= state+1;
-		end
-	      
-	      8'h01:
-		begin
-		   // End reset
-		   disp_reset_b <= 1'b1;
-		   state <= state+1;
-		end
-	      
-	      8'h02:
-		begin
-		   // Initialize dot register (set all dots to zero)
-		   disp_ce_b <= 1'b0;
-		   disp_data_out <= 1'b0; // dot_index[0];
-		   if (dot_index == 639)
-		     state <= state+1;
-		   else
-		     dot_index <= dot_index+1;
-		end
-	      
-	      8'h03:
-		begin
-		   // Latch dot data
-		   disp_ce_b <= 1'b1;
-		   dot_index <= 31;		// re-purpose to init ctrl reg
-		   state <= state+1;
-		end
-	      
-	      8'h04:
-		begin
-		   // Setup the control register
-		   disp_rs <= 1'b1; // Select the control register
-		   disp_ce_b <= 1'b0;
-		   disp_data_out <= control[31];
-		   control <= {control[30:0], 1'b0};	// shift left
-		   if (dot_index == 0)
-		     state <= state+1;
-		   else
-		     dot_index <= dot_index-1;
-		end
-	      
-	      8'h05:
-		begin
-		   // Latch the control register data / dot data
-		   disp_ce_b <= 1'b1;
-		   dot_index <= 39;		// init for single char
-		   char_index <= 15;		// start with MS char
-		   data <= data_in;
-		   state <= state+1;
-		end
-	      
-	      8'h06:
-		begin
-		   // Load the user's dot data into the dot reg, char by char
-		   disp_rs <= 1'b0;	 		// Select the dot register
-		   disp_ce_b <= 1'b0;
-		   disp_data_out <= dots[dot_index]; // dot data from msb
-		   if (dot_index == 0)
-	             if (char_index == 0)
-	               state <= 5;			// all done, latch data
-		     else
-		       begin
-			  char_index <= char_index - 1;	// goto next char
-			  data <= data_in;
-			  dot_index <= 39;
-		       end
-		   else
-		     dot_index <= dot_index-1;	// else loop thru all dots 
-		end
-	      
-	    endcase // casex(state)
+    if (dreset)
+      begin
+         state <= 0;
+         dot_index <= 0;
+         control <= 32'h7F7F7F7F;
+      end
+    else
+      casex (state)
+        8'h00:
+    begin
+       // Reset displays
+       disp_data_out <= 1'b0; 
+       disp_rs <= 1'b0; // dot register
+       disp_ce_b <= 1'b1;
+       disp_reset_b <= 1'b0;       
+       dot_index <= 0;
+       state <= state+1;
+    end
+        
+        8'h01:
+    begin
+       // End reset
+       disp_reset_b <= 1'b1;
+       state <= state+1;
+    end
+        
+        8'h02:
+    begin
+       // Initialize dot register (set all dots to zero)
+       disp_ce_b <= 1'b0;
+       disp_data_out <= 1'b0; // dot_index[0];
+       if (dot_index == 639)
+         state <= state+1;
+       else
+         dot_index <= dot_index+1;
+    end
+        
+        8'h03:
+    begin
+       // Latch dot data
+       disp_ce_b <= 1'b1;
+       dot_index <= 31;   // re-purpose to init ctrl reg
+       state <= state+1;
+    end
+        
+        8'h04:
+    begin
+       // Setup the control register
+       disp_rs <= 1'b1; // Select the control register
+       disp_ce_b <= 1'b0;
+       disp_data_out <= control[31];
+       control <= {control[30:0], 1'b0};  // shift left
+       if (dot_index == 0)
+         state <= state+1;
+       else
+         dot_index <= dot_index-1;
+    end
+        
+        8'h05:
+    begin
+       // Latch the control register data / dot data
+       disp_ce_b <= 1'b1;
+       dot_index <= 39;   // init for single char
+       char_index <= 15;    // start with MS char
+       data <= data_in;
+       state <= state+1;
+    end
+        
+        8'h06:
+    begin
+       // Load the user's dot data into the dot reg, char by char
+       disp_rs <= 1'b0;     // Select the dot register
+       disp_ce_b <= 1'b0;
+       disp_data_out <= dots[dot_index]; // dot data from msb
+       if (dot_index == 0)
+               if (char_index == 0)
+                 state <= 5;      // all done, latch data
+         else
+           begin
+            char_index <= char_index - 1; // goto next char
+            data <= data_in;
+            dot_index <= 39;
+           end
+       else
+         dot_index <= dot_index-1;  // else loop thru all dots 
+    end
+        
+      endcase // casex(state)
        end
 
    always @ (data or char_index)
      case (char_index)
-       4'h0: 	 	nibble <= data[3:0];
-       4'h1: 	 	nibble <= data[7:4];
-       4'h2: 	 	nibble <= data[11:8];
-       4'h3: 	 	nibble <= data[15:12];
-       4'h4: 	 	nibble <= data[19:16];
-       4'h5: 	 	nibble <= data[23:20];
-       4'h6: 	 	nibble <= data[27:24];
-       4'h7: 	 	nibble <= data[31:28];
-       4'h8: 	 	nibble <= data[35:32];
-       4'h9: 	 	nibble <= data[39:36];
-       4'hA: 	 	nibble <= data[43:40];
-       4'hB: 	 	nibble <= data[47:44];
-       4'hC: 	 	nibble <= data[51:48];
-       4'hD: 	 	nibble <= data[55:52];
-       4'hE: 	 	nibble <= data[59:56];
-       4'hF: 	 	nibble <= data[63:60];
+       4'h0:    nibble <= data[3:0];
+       4'h1:    nibble <= data[7:4];
+       4'h2:    nibble <= data[11:8];
+       4'h3:    nibble <= data[15:12];
+       4'h4:    nibble <= data[19:16];
+       4'h5:    nibble <= data[23:20];
+       4'h6:    nibble <= data[27:24];
+       4'h7:    nibble <= data[31:28];
+       4'h8:    nibble <= data[35:32];
+       4'h9:    nibble <= data[39:36];
+       4'hA:    nibble <= data[43:40];
+       4'hB:    nibble <= data[47:44];
+       4'hC:    nibble <= data[51:48];
+       4'hD:    nibble <= data[55:52];
+       4'hE:    nibble <= data[59:56];
+       4'hF:    nibble <= data[63:60];
      endcase
       
    always @(nibble)
