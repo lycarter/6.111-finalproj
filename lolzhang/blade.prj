@@ -1,0 +1,4 @@
+verilog work "xvga.v"
+verilog work "debounce.v"
+verilog work "blade_generator.v"
+verilog work "blade.v"

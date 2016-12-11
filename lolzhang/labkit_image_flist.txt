@@ -1,0 +1,13 @@
+# Output products list for <labkit_image>
+labkit_image.asy
+labkit_image.mif
+labkit_image.ngc
+labkit_image.sym
+labkit_image.v
+labkit_image.veo
+labkit_image.vhd
+labkit_image.vho
+labkit_image.xco
+labkit_image_blk_mem_gen_v2_8_xst_1.ngc_xst.xrpt
+labkit_image_flist.txt
+labkit_image_xmdf.tcl

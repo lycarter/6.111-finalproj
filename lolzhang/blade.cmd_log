@@ -1,0 +1,149 @@
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd
+xst -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -ifn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.xst" -ofn "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/blade.syr"
+ngdbuild -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -dd _ngo  -aul -nt timestamp -i -p xc2v6000-bf957-4 "blade.ngc" blade.ngd
+map -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -p xc2v6000-bf957-4 -cm area -pr off -k 4 -c 100 -tx off -o blade_map.ncd blade.ngd blade.pcf
+par -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -w -intstyle ise -ol std -t 1 blade_map.ncd blade.ncd blade.pcf
+trce -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -v 3 -s 4 -xml blade blade.ncd -o blade.twr blade.pcf -ucf labkit.ucf
+bitgen -ise "/afs/athena.mit.edu/user/l/o/lolzhang/Desktop/6.111/finalproject/final.ise" -intstyle ise -f blade.ut blade.ncd

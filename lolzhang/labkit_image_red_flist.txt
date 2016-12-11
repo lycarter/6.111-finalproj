@@ -1,0 +1,13 @@
+# Output products list for <labkit_image_red>
+labkit_image_red.asy
+labkit_image_red.mif
+labkit_image_red.ngc
+labkit_image_red.sym
+labkit_image_red.v
+labkit_image_red.veo
+labkit_image_red.vhd
+labkit_image_red.vho
+labkit_image_red.xco
+labkit_image_red_blk_mem_gen_v2_8_xst_1.ngc_xst.xrpt
+labkit_image_red_flist.txt
+labkit_image_red_xmdf.tcl
