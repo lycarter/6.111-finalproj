@@ -31,9 +31,9 @@
 ------------- Begin Cut here for COMPONENT Declaration ------ COMP_TAG
 component ycrcb2rgb
 	port (
-	y: IN std_logic_VECTOR(7 downto 0);
-	cr: IN std_logic_VECTOR(7 downto 0);
-	cb: IN std_logic_VECTOR(7 downto 0);
+	y: IN std_logic_VECTOR(9 downto 0);
+	cr: IN std_logic_VECTOR(9 downto 0);
+	cb: IN std_logic_VECTOR(9 downto 0);
 	r: OUT std_logic_VECTOR(7 downto 0);
 	g: OUT std_logic_VECTOR(7 downto 0);
 	b: OUT std_logic_VECTOR(7 downto 0);

@@ -11,7 +11,7 @@ Target Device  : xc2v6000
 Target Package : bf957
 Target Speed   : -4
 Mapper Version : virtex2 -- $Revision: 1.46.12.2 $
-Mapped Date    : Sun Dec 11 18:12:46 2016
+Mapped Date    : Sun Dec 11 23:40:54 2016
 
 Design Summary
 --------------
@@ -19,15 +19,15 @@ Number of errors:      0
 Number of warnings:  287
 Logic Utilization:
   Number of Slice Flip Flops:           902 out of  67,584    1%
-  Number of 4 input LUTs:               792 out of  67,584    1%
+  Number of 4 input LUTs:               814 out of  67,584    1%
 Logic Distribution:
-  Number of occupied Slices:            714 out of  33,792    2%
-    Number of Slices containing only related logic:     714 out of     714 100%
-    Number of Slices containing unrelated logic:          0 out of     714   0%
+  Number of occupied Slices:            725 out of  33,792    2%
+    Number of Slices containing only related logic:     725 out of     725 100%
+    Number of Slices containing unrelated logic:          0 out of     725   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:         875 out of  67,584    1%
-    Number used as logic:               742
-    Number used as a route-thru:         83
+  Total Number of 4 input LUTs:         891 out of  67,584    1%
+    Number used as logic:               764
+    Number used as a route-thru:         77
     Number used as Shift registers:      50
   Number of bonded IOBs:                577 out of     684   84%
     IOB Flip Flops:                       6
@@ -37,7 +37,7 @@ Logic Distribution:
 
 Peak Memory Usage:  495 MB
 Total REAL time to MAP completion:  2 secs 
-Total CPU time to MAP completion:   2 secs 
+Total CPU time to MAP completion:   1 secs 
 
 NOTES:
 
@@ -79,14 +79,14 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
-WARNING:LIT:243 - Logical network user3<28>_IBUF has no load.
-WARNING:LIT:395 - The above warning message base_net_load_rule is repeated 292
+WARNING:LIT:243 - Logical network decode/y<0> has no load.
+WARNING:LIT:395 - The above warning message base_net_load_rule is repeated 294
    more times for the following (max. 5 shown):
+   decode/y<1>,
+   user3<28>_IBUF,
    user3<4>_IBUF,
    user3<29>_IBUF,
-   user3<5>_IBUF,
-   user3<6>_IBUF,
-   user3<7>_IBUF
+   user3<5>_IBUF
    To see the details of these warning messages, please use the -detail switch.
 WARNING:LIT:162 - Only DFS outputs (CLKFX/FX180/CONCUR) of DCM symbol "vclk1"
    are routed, but CLKFB is not routed. Proper phase relationship of output
@@ -672,9 +672,9 @@ INFO:PhysDesignRules:772 - To achieve optimal frequency synthesis performance
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-  44 block(s) removed
+  46 block(s) removed
   46 block(s) optimized away
-  47 signal(s) removed
+  49 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -694,7 +694,7 @@ The signal "ycrcb2rgb/sclr" is sourceless and has been removed.
 "ycrcb2rgb/BU2/U0/add_R/use_fabric.adder/reg/shift_register_1_0" (SFF) removed.
   The signal "ycrcb2rgb/BU2/U0/add_R/use_fabric.adder/reg/shift_register_1_0" is
 sourceless and has been removed.
-   Sourceless block "ycrcb2rgb/BU2/U0/clip.max_R/c<0>" (ROM) removed.
+   Sourceless block "ycrcb2rgb/BU2/U0/clip.max_R/c<0>1" (ROM) removed.
     The signal "ycrcb2rgb/BU2/U0/clip.max_R/c<0>" is sourceless and has been
 removed.
      Sourceless block "ycrcb2rgb/BU2/U0/clip.max_R/reg/shift_register_1_0" (SFF)
@@ -711,7 +711,7 @@ removed.
 "ycrcb2rgb/BU2/U0/add_R/use_fabric.adder/reg/shift_register_1_1" (SFF) removed.
   The signal "ycrcb2rgb/BU2/U0/add_R/use_fabric.adder/reg/shift_register_1_1" is
 sourceless and has been removed.
-   Sourceless block "ycrcb2rgb/BU2/U0/clip.max_R/c<1>" (ROM) removed.
+   Sourceless block "ycrcb2rgb/BU2/U0/clip.max_R/c<1>1" (ROM) removed.
     The signal "ycrcb2rgb/BU2/U0/clip.max_R/c<1>" is sourceless and has been
 removed.
      Sourceless block "ycrcb2rgb/BU2/U0/clip.max_R/reg/shift_register_1_1" (SFF)
@@ -728,7 +728,7 @@ removed.
 "ycrcb2rgb/BU2/U0/add_G/use_fabric.adder/reg/shift_register_1_0" (SFF) removed.
   The signal "ycrcb2rgb/BU2/U0/add_G/use_fabric.adder/reg/shift_register_1_0" is
 sourceless and has been removed.
-   Sourceless block "ycrcb2rgb/BU2/U0/clip.max_G/c<0>" (ROM) removed.
+   Sourceless block "ycrcb2rgb/BU2/U0/clip.max_G/c<0>1" (ROM) removed.
     The signal "ycrcb2rgb/BU2/U0/clip.max_G/c<0>" is sourceless and has been
 removed.
      Sourceless block "ycrcb2rgb/BU2/U0/clip.max_G/reg/shift_register_1_0" (SFF)
@@ -745,7 +745,7 @@ removed.
 "ycrcb2rgb/BU2/U0/add_G/use_fabric.adder/reg/shift_register_1_1" (SFF) removed.
   The signal "ycrcb2rgb/BU2/U0/add_G/use_fabric.adder/reg/shift_register_1_1" is
 sourceless and has been removed.
-   Sourceless block "ycrcb2rgb/BU2/U0/clip.max_G/c<1>" (ROM) removed.
+   Sourceless block "ycrcb2rgb/BU2/U0/clip.max_G/c<1>1" (ROM) removed.
     The signal "ycrcb2rgb/BU2/U0/clip.max_G/c<1>" is sourceless and has been
 removed.
      Sourceless block "ycrcb2rgb/BU2/U0/clip.max_G/reg/shift_register_1_1" (SFF)
@@ -762,7 +762,7 @@ removed.
 "ycrcb2rgb/BU2/U0/add_B/use_fabric.adder/reg/shift_register_1_0" (SFF) removed.
   The signal "ycrcb2rgb/BU2/U0/add_B/use_fabric.adder/reg/shift_register_1_0" is
 sourceless and has been removed.
-   Sourceless block "ycrcb2rgb/BU2/U0/clip.max_B/c<0>" (ROM) removed.
+   Sourceless block "ycrcb2rgb/BU2/U0/clip.max_B/c<0>1" (ROM) removed.
     The signal "ycrcb2rgb/BU2/U0/clip.max_B/c<0>" is sourceless and has been
 removed.
      Sourceless block "ycrcb2rgb/BU2/U0/clip.max_B/reg/shift_register_1_0" (SFF)
@@ -779,7 +779,7 @@ removed.
 "ycrcb2rgb/BU2/U0/add_B/use_fabric.adder/reg/shift_register_1_1" (SFF) removed.
   The signal "ycrcb2rgb/BU2/U0/add_B/use_fabric.adder/reg/shift_register_1_1" is
 sourceless and has been removed.
-   Sourceless block "ycrcb2rgb/BU2/U0/clip.max_B/c<1>" (ROM) removed.
+   Sourceless block "ycrcb2rgb/BU2/U0/clip.max_B/c<1>1" (ROM) removed.
     The signal "ycrcb2rgb/BU2/U0/clip.max_B/c<1>" is sourceless and has been
 removed.
      Sourceless block "ycrcb2rgb/BU2/U0/clip.max_B/reg/shift_register_1_1" (SFF)
@@ -817,6 +817,16 @@ been removed.
 The signal "ycrcb2rgb/BU2/Mshreg_h_sync_out" is sourceless and has been removed.
 The signal "ycrcb2rgb/BU2/Mshreg_v_sync_out" is sourceless and has been removed.
 The signal "ycrcb2rgb/BU2/Mshreg_pix_en_out" is sourceless and has been removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "decode/y<0>" is unused and has been removed.
+ Unused block "decode/y_0" (FF) removed.
+The signal "decode/y<1>" is unused and has been removed.
+ Unused block "decode/y_1" (FF) removed.
 Unused block "ycrcb2rgb/BU2/Mshreg_h_sync_out" () removed.
 Unused block "ycrcb2rgb/BU2/Mshreg_pix_en_out" () removed.
 Unused block "ycrcb2rgb/BU2/Mshreg_v_sync_out" () removed.

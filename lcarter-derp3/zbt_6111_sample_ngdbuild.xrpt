@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="NgdBuild" timeStamp="Sun Dec 11 18:12:45 2016">
+  <application stringID="NgdBuild" timeStamp="Sun Dec 11 23:40:53 2016">
     <task stringID="NGDBUILD_REPORT">
       <section stringID="NGDBUILD_DESIGN_SUMMARY">
         <item dataType="int" stringID="NGDBUILD_NUM_ERRORS" value="0"/>
@@ -20,7 +20,7 @@
           <section stringID="NGDBUILD_CORE_INSTANCES">
             <scope stringID="NGDBUILD_CORE_INSTANCE" value="ycrcb2rgb">
               <item stringID="NGDBUILD_CORE_INFO" type="ycrcb2rgb_v1_0" value="ycrcb2rgb"/>
-              <item c_acoef="91915" c_bcoef="-46819" c_boffset="-15889152" c_ccoef="-22566" c_coef_range="1" c_cwidth="18" c_dcoef="116198" c_fabric_adds="1" c_family_has_mac="0" c_goffset="7865472" c_has_clamp="1" c_has_clip="1" c_iwidth="8" c_mwidth="26" c_owidth="8" c_rgbmax="240" c_rgbmin="16" c_roffset="-12780928" component_name="ycrcb2rgb" stringID="NGDBUILD_CORE_PARAMETERS" value="ycrcb2rgb"/>
+              <item c_acoef="100902" c_bcoef="-24268" c_boffset="-15210496" c_ccoef="-9715" c_coef_range="1" c_cwidth="18" c_dcoef="118896" c_fabric_adds="1" c_family_has_mac="12" c_goffset="4358016" c_has_clamp="1" c_has_clip="1" c_iwidth="10" c_mwidth="26" c_owidth="8" c_rgbmax="255" c_rgbmin="0" c_roffset="-12907264" component_name="ycrcb2rgb" stringID="NGDBUILD_CORE_PARAMETERS" value="ycrcb2rgb"/>
             </scope>
           </section>
         </section>

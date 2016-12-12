@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version K.39
-# Date: Sun Dec 11 22:36:29 2016
+# Date: Sun Dec 11 23:31:03 2016
 #
 ##############################################################
 #
@@ -35,24 +35,24 @@ SET vhdlsim = True
 SELECT YCrCb_to_RGB_Color-Space_Converter family Xilinx,_Inc. 1.0
 # END Select
 # BEGIN Parameters
-CSET c_d=0.564
-CSET ca=0.299
-CSET cb=0.114
-CSET cc=0.713
-CSET coffset=128
+CSET c_d=0.5512
+CSET ca=0.1819
+CSET cb=0.0618
+CSET cc=0.6495
+CSET coffset=512
 CSET component_name=ycrcb2rgb
 CSET cwidth=18
 CSET has_clamp=true
 CSET has_clip=true
-CSET iwidth=8
+CSET iwidth=10
 CSET mwidth=26
-CSET output_range=16_to_240_for_TV
+CSET output_range=0_to_255_for_Computer_Graphics
 CSET owidth=8
-CSET rgbmax=240
-CSET rgbmin=16
-CSET standard_sel=SD_ITU_601
-CSET yoffset=16
+CSET rgbmax=255
+CSET rgbmin=0
+CSET standard_sel=HD_ITU_709__1125_NTSC
+CSET yoffset=0
 # END Parameters
 GENERATE
-# CRC: 8bc36252
+# CRC: 7f0b3d3f
 

@@ -491,10 +491,9 @@ module zbt_6111_sample(beep, audio_reset_b,
 
    // mux selecting read/write to memory based on which write-enable is chosen
 
-   wire 	sw_ntsc = 1'b1;
-   wire 	my_we = sw_ntsc ? (reversed_hcount[0]==1'd1) : blank;
-   wire [18:0] 	write_addr = sw_ntsc ? ntsc_addr : vram_addr2;
-   wire [35:0] 	write_data = sw_ntsc ? ntsc_data : vpat;
+   wire 	my_we = (reversed_hcount[0]==1'd1);
+   wire [18:0] 	write_addr = ntsc_addr;
+   wire [35:0] 	write_data = ntsc_data;
 
 //   wire 	write_enable = sw_ntsc ? (my_we & ntsc_we) : my_we;
 //   assign 	vram_addr = write_enable ? write_addr : vram_addr1;
@@ -516,12 +515,23 @@ module zbt_6111_sample(beep, audio_reset_b,
 	hs <= hsync;
 	vs <= vsync;
      end
+	  
+	wire in_frame;
+	wire [23:0] cropped_rgb, cropped_hsv;
+	assign in_frame = (reversed_hcount >=150 && reversed_hcount <= 855 && vcount >= 105 && vcount <= 600);
+	assign cropped_rgb = in_frame ? {pixel[17:12],2'd1,pixel[11:6],2'd1,pixel[5:0],2'd1} : {8'd1,8'd1,8'd1};
+//	rgb2hsv rgb2hsv(.clock(tv_in_line_clock1), .reset(reset),
+//		.r(cropped_rgb[23:16]), .g(cropped_rgb[15:8]), .b(cropped_rgb[7:0]),
+//		.h(cropped_hsv[23:16]), .s(cropped_hsv[15:8]), .v(cropped_hsv[7:0]));
+	
 
    // VGA Output.  In order to meet the setup and hold times of the
    // AD7125, we send it ~clk.
-   assign vga_out_red = {pixel[17:12],2'd1};
-   assign vga_out_green = {pixel[11:6],2'd1};
-   assign vga_out_blue = {pixel[5:0],2'd1};
+	
+
+   assign vga_out_red = cropped_rgb[23:16];
+   assign vga_out_green = cropped_rgb[15:8];
+   assign vga_out_blue = cropped_rgb[7:0];
 
    assign vga_out_sync_b = 1'b1;    // not used
    assign vga_out_pixel_clock = ~clk;

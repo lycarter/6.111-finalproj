@@ -32,9 +32,9 @@
 
 //----------- Begin Cut here for INSTANTIATION Template ---// INST_TAG
 ycrcb2rgb YourInstanceName (
-	.y(y), // Bus [7 : 0] 
-	.cr(cr), // Bus [7 : 0] 
-	.cb(cb), // Bus [7 : 0] 
+	.y(y), // Bus [9 : 0] 
+	.cr(cr), // Bus [9 : 0] 
+	.cb(cb), // Bus [9 : 0] 
 	.r(r), // Bus [7 : 0] 
 	.g(g), // Bus [7 : 0] 
 	.b(b), // Bus [7 : 0] 

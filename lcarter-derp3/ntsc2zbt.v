@@ -46,8 +46,8 @@ module ntsc_to_zbt(clk, vclk, fvh, dv, din, ntsc_addr, ntsc_data, ntsc_we, sw);
    output 	 ntsc_we;	// write enable for NTSC data
    input 	 sw;		// switch which determines mode (for debugging)
 
-   parameter 	 COL_START = 10'd30;
-   parameter 	 ROW_START = 10'd30;
+   parameter 	 COL_START = 10'd150;
+   parameter 	 ROW_START = 10'd50;
 
    // here put the luminance data from the ntsc decoder into the ram
    // this is for 1024 * 788 XGA display
