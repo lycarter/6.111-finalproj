@@ -74,7 +74,7 @@
 // Complete change history (including bug fixes)
 //
 // 2011-Nov-10: Changed resolution to 1024 * 768.
-//					 Added back ramclok to deskew RAM clock
+//              Added back ramclok to deskew RAM clock
 //
 // 2009-May-11: Fixed memory management bug by 8 clock cycle forecast. 
 //              Changed resolution to  800 * 600.
@@ -108,78 +108,78 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 module zbt_6111_sample(beep, audio_reset_b, 
-		       ac97_sdata_out, ac97_sdata_in, ac97_synch,
-	       ac97_bit_clock,
-	       
-	       vga_out_red, vga_out_green, vga_out_blue, vga_out_sync_b,
-	       vga_out_blank_b, vga_out_pixel_clock, vga_out_hsync,
-	       vga_out_vsync,
+             ac97_sdata_out, ac97_sdata_in, ac97_synch,
+          ac97_bit_clock,
+          
+          vga_out_red, vga_out_green, vga_out_blue, vga_out_sync_b,
+          vga_out_blank_b, vga_out_pixel_clock, vga_out_hsync,
+          vga_out_vsync,
 
-	       tv_out_ycrcb, tv_out_reset_b, tv_out_clock, tv_out_i2c_clock,
-	       tv_out_i2c_data, tv_out_pal_ntsc, tv_out_hsync_b,
-	       tv_out_vsync_b, tv_out_blank_b, tv_out_subcar_reset,
+          tv_out_ycrcb, tv_out_reset_b, tv_out_clock, tv_out_i2c_clock,
+          tv_out_i2c_data, tv_out_pal_ntsc, tv_out_hsync_b,
+          tv_out_vsync_b, tv_out_blank_b, tv_out_subcar_reset,
 
-	       tv_in_ycrcb, tv_in_data_valid, tv_in_line_clock1,
-	       tv_in_line_clock2, tv_in_aef, tv_in_hff, tv_in_aff,
-	       tv_in_i2c_clock, tv_in_i2c_data, tv_in_fifo_read,
-	       tv_in_fifo_clock, tv_in_iso, tv_in_reset_b, tv_in_clock,
+          tv_in_ycrcb, tv_in_data_valid, tv_in_line_clock1,
+          tv_in_line_clock2, tv_in_aef, tv_in_hff, tv_in_aff,
+          tv_in_i2c_clock, tv_in_i2c_data, tv_in_fifo_read,
+          tv_in_fifo_clock, tv_in_iso, tv_in_reset_b, tv_in_clock,
 
-	       ram0_data, ram0_address, ram0_adv_ld, ram0_clk, ram0_cen_b,
-	       ram0_ce_b, ram0_oe_b, ram0_we_b, ram0_bwe_b, 
+          ram0_data, ram0_address, ram0_adv_ld, ram0_clk, ram0_cen_b,
+          ram0_ce_b, ram0_oe_b, ram0_we_b, ram0_bwe_b, 
 
-	       ram1_data, ram1_address, ram1_adv_ld, ram1_clk, ram1_cen_b,
-	       ram1_ce_b, ram1_oe_b, ram1_we_b, ram1_bwe_b,
+          ram1_data, ram1_address, ram1_adv_ld, ram1_clk, ram1_cen_b,
+          ram1_ce_b, ram1_oe_b, ram1_we_b, ram1_bwe_b,
 
-	       clock_feedback_out, clock_feedback_in,
+          clock_feedback_out, clock_feedback_in,
 
-	       flash_data, flash_address, flash_ce_b, flash_oe_b, flash_we_b,
-	       flash_reset_b, flash_sts, flash_byte_b,
+          flash_data, flash_address, flash_ce_b, flash_oe_b, flash_we_b,
+          flash_reset_b, flash_sts, flash_byte_b,
 
-	       rs232_txd, rs232_rxd, rs232_rts, rs232_cts,
+          rs232_txd, rs232_rxd, rs232_rts, rs232_cts,
 
-	       mouse_clock, mouse_data, keyboard_clock, keyboard_data,
+          mouse_clock, mouse_data, keyboard_clock, keyboard_data,
 
-	       clock_27mhz, clock1, clock2,
+          clock_27mhz, clock1, clock2,
 
-	       disp_blank, disp_data_out, disp_clock, disp_rs, disp_ce_b,
-	       disp_reset_b, disp_data_in,
+          disp_blank, disp_data_out, disp_clock, disp_rs, disp_ce_b,
+          disp_reset_b, disp_data_in,
 
-	       button0, button1, button2, button3, button_enter, button_right,
-	       button_left, button_down, button_up,
+          button0, button1, button2, button3, button_enter, button_right,
+          button_left, button_down, button_up,
 
-	       switch,
+          switch,
 
-	       led,
-	       
-	       user1, user2, user3, user4,
-	       
-	       daughtercard,
+          led,
+          
+          user1, user2, user3, user4,
+          
+          daughtercard,
 
-	       systemace_data, systemace_address, systemace_ce_b,
-	       systemace_we_b, systemace_oe_b, systemace_irq, systemace_mpbrdy,
-	       
-	       analyzer1_data, analyzer1_clock,
- 	       analyzer2_data, analyzer2_clock,
- 	       analyzer3_data, analyzer3_clock,
- 	       analyzer4_data, analyzer4_clock);
+          systemace_data, systemace_address, systemace_ce_b,
+          systemace_we_b, systemace_oe_b, systemace_irq, systemace_mpbrdy,
+          
+          analyzer1_data, analyzer1_clock,
+          analyzer2_data, analyzer2_clock,
+          analyzer3_data, analyzer3_clock,
+          analyzer4_data, analyzer4_clock);
 
    output beep, audio_reset_b, ac97_synch, ac97_sdata_out;
    input  ac97_bit_clock, ac97_sdata_in;
    
    output [7:0] vga_out_red, vga_out_green, vga_out_blue;
    output vga_out_sync_b, vga_out_blank_b, vga_out_pixel_clock,
-	  vga_out_hsync, vga_out_vsync;
+     vga_out_hsync, vga_out_vsync;
 
    output [9:0] tv_out_ycrcb;
    output tv_out_reset_b, tv_out_clock, tv_out_i2c_clock, tv_out_i2c_data,
-	  tv_out_pal_ntsc, tv_out_hsync_b, tv_out_vsync_b, tv_out_blank_b,
-	  tv_out_subcar_reset;
+     tv_out_pal_ntsc, tv_out_hsync_b, tv_out_vsync_b, tv_out_blank_b,
+     tv_out_subcar_reset;
    
    input  [19:0] tv_in_ycrcb;
    input  tv_in_data_valid, tv_in_line_clock1, tv_in_line_clock2, tv_in_aef,
-	  tv_in_hff, tv_in_aff;
+     tv_in_hff, tv_in_aff;
    output tv_in_i2c_clock, tv_in_fifo_read, tv_in_fifo_clock, tv_in_iso,
-	  tv_in_reset_b, tv_in_clock;
+     tv_in_reset_b, tv_in_clock;
    inout  tv_in_i2c_data;
         
    inout  [35:0] ram0_data;
@@ -212,7 +212,7 @@ module zbt_6111_sample(beep, audio_reset_b,
    output  disp_data_out;
    
    input  button0, button1, button2, button3, button_enter, button_right,
-	  button_left, button_down, button_up;
+     button_left, button_down, button_up;
    input  [7:0] switch;
    output [7:0] led;
 
@@ -226,7 +226,7 @@ module zbt_6111_sample(beep, audio_reset_b,
    input  systemace_irq, systemace_mpbrdy;
 
    output [15:0] analyzer1_data, analyzer2_data, analyzer3_data, 
-		 analyzer4_data;
+       analyzer4_data;
    output analyzer1_clock, analyzer2_clock, analyzer3_clock, analyzer4_clock;
 
    ////////////////////////////////////////////////////////////////////////////
@@ -276,7 +276,7 @@ module zbt_6111_sample(beep, audio_reset_b,
    assign ram0_address = 19'h0;
    assign ram0_clk = 1'b0;
    assign ram0_we_b = 1'b1;
-   assign ram0_cen_b = 1'b0;	// clock enable
+   assign ram0_cen_b = 1'b0;  // clock enable
 */
 
 /* enable RAM pins */
@@ -364,7 +364,7 @@ module zbt_6111_sample(beep, audio_reset_b,
    assign analyzer3_clock = 1'b1;
    assign analyzer4_data = 16'h0;
    assign analyzer4_clock = 1'b1;
-			    
+             
    ////////////////////////////////////////////////////////////////////////////
    // Demonstration of ZBT RAM as video memory
 
@@ -382,7 +382,6 @@ module zbt_6111_sample(beep, audio_reset_b,
 
 /*   ////////////////////////////////////////////////////////////////////////////
    // Demonstration of ZBT RAM as video memory
-
    // use FPGA's digital clock manager to produce a
    // 40MHz clock (actually 40.5MHz)
    wire clock_40mhz_unbuf,clock_40mhz;
@@ -392,25 +391,23 @@ module zbt_6111_sample(beep, audio_reset_b,
    // synthesis attribute CLK_FEEDBACK of vclk1 is NONE
    // synthesis attribute CLKIN_PERIOD of vclk1 is 37
    BUFG vclk2(.O(clock_40mhz),.I(clock_40mhz_unbuf));
-
    wire clk = clock_40mhz;
-
 */
-	wire locked;
-
-	//assign clock_feedback_out = 0; // gph 2011-Nov-10
+   wire locked;
+   //assign clock_feedback_out = 0; // gph 2011-Nov-10
+   wire clk;
    
    ramclock rc(.ref_clock(clock_65mhz), .fpga_clock(clk),
-					.ram0_clock(ram0_clk), 
-					//.ram1_clock(ram1_clk),   //uncomment if ram1 is used
-					.clock_feedback_in(clock_feedback_in),
-					.clock_feedback_out(clock_feedback_out), .locked(locked));
+               .ram0_clock(ram0_clk), 
+               //.ram1_clock(ram1_clk),   //uncomment if ram1 is used
+               .clock_feedback_in(clock_feedback_in),
+               .clock_feedback_out(clock_feedback_out), .locked(locked));
 
    
    // power-on reset generation
    wire power_on_reset;    // remain high for first 16 clocks
    SRL16 reset_sr (.D(1'b0), .CLK(clk), .Q(power_on_reset),
-		   .A0(1'b1), .A1(1'b1), .A2(1'b1), .A3(1'b1));
+         .A0(1'b1), .A1(1'b1), .A2(1'b1), .A3(1'b1));
    defparam reset_sr.INIT = 16'hFFFF;
 
    // ENTER button is user reset
@@ -422,12 +419,14 @@ module zbt_6111_sample(beep, audio_reset_b,
 
    reg [63:0] dispdata;
    display_16hex hexdisp1(reset, clk, dispdata,
-			  disp_blank, disp_clock, disp_rs, disp_ce_b,
-			  disp_reset_b, disp_data_out);
+           disp_blank, disp_clock, disp_rs, disp_ce_b,
+           disp_reset_b, disp_data_out);
 
    // generate basic XVGA video signals
    wire [10:0] hcount;
    wire [9:0]  vcount;
+   wire [10:0] reversed_hcount;
+   assign reversed_hcount = 11'd1023 - hcount;
    wire hsync,vsync,blank;
    xvga xvga1(clk,hcount,vcount,hsync,vsync,blank);
 
@@ -440,82 +439,177 @@ module zbt_6111_sample(beep, audio_reset_b,
 
    wire ram0_clk_not_used;
    zbt_6111 zbt1(clk, 1'b1, vram_we, vram_addr,
-		   vram_write_data, vram_read_data,
-		   ram0_clk_not_used,   //to get good timing, don't connect ram_clk to zbt_6111
-		   ram0_we_b, ram0_address, ram0_data, ram0_cen_b);
+         vram_write_data, vram_read_data,
+         ram0_clk_not_used,   //to get good timing, don't connect ram_clk to zbt_6111
+         ram0_we_b, ram0_address, ram0_data, ram0_cen_b);
 
    // generate pixel value from reading ZBT memory
-   wire [7:0] 	vr_pixel;
-   wire [18:0] 	vram_addr1;
+   wire [17:0]    vr_pixel;
+   wire [18:0]    vram_addr1;
 
-   vram_display vd1(reset,clk,hcount,vcount,vr_pixel,
-		    vram_addr1,vram_read_data);
+   vram_display vd1(reset,clk,reversed_hcount,vcount,vr_pixel,
+          vram_addr1,vram_read_data);
 
    // ADV7185 NTSC decoder interface code
    // adv7185 initialization module
    adv7185init adv7185(.reset(reset), .clock_27mhz(clock_27mhz), 
-		       .source(1'b0), .tv_in_reset_b(tv_in_reset_b), 
-		       .tv_in_i2c_clock(tv_in_i2c_clock), 
-		       .tv_in_i2c_data(tv_in_i2c_data));
+             .source(1'b0), .tv_in_reset_b(tv_in_reset_b), 
+             .tv_in_i2c_clock(tv_in_i2c_clock), 
+             .tv_in_i2c_data(tv_in_i2c_data));
 
-   wire [29:0] ycrcb;	// video data (luminance, chrominance)
-   wire [2:0] fvh;	// sync for field, vertical, horizontal
-   wire       dv;	// data valid
+   wire [29:0] ycrcb;   // video data (luminance, chrominance)
+   wire [2:0] fvh;   // sync for field, vertical, horizontal
+   wire       dv; // data valid
    
    ntsc_decode decode (.clk(tv_in_line_clock1), .reset(reset),
-		       .tv_in_ycrcb(tv_in_ycrcb[19:10]), 
-		       .ycrcb(ycrcb), .f(fvh[2]),
-		       .v(fvh[1]), .h(fvh[0]), .data_valid(dv));
+             .tv_in_ycrcb(tv_in_ycrcb[19:10]), 
+             .ycrcb(ycrcb), .f(fvh[2]),
+             .v(fvh[1]), .h(fvh[0]), .data_valid(dv));
+             
+   wire [23:0] rgb;
+   ycrcb2rgb ycrcb2rgb(.r(rgb[23:16]), .g(rgb[15:8]), .b(rgb[7:0]),.clk(tv_in_line_clock1),
+   .y(ycrcb[29:20]),.cr(ycrcb[19:10]),.cb(ycrcb[9:0]));
 
    // code to write NTSC data to video memory
 
    wire [18:0] ntsc_addr;
    wire [35:0] ntsc_data;
    wire        ntsc_we;
-   ntsc_to_zbt n2z (clk, tv_in_line_clock1, fvh, dv, ycrcb[29:22],
-		    ntsc_addr, ntsc_data, ntsc_we, switch[6]);
+   ntsc_to_zbt n2z (clk, tv_in_line_clock1, fvh, dv, {rgb[23:18],rgb[15:10],rgb[7:2]},
+          ntsc_addr, ntsc_data, ntsc_we, 1'b0);
+// ntsc_to_zbt n2z (clk, tv_in_line_clock1, fvh, dv, {ycrcb[29:24],ycrcb[29:24],ycrcb[29:24]},
+//    ntsc_addr, ntsc_data, ntsc_we, 1'b0);
 
    // code to write pattern to ZBT memory
-   reg [31:0] 	count;
+   reg [31:0]  count;
    always @(posedge clk) count <= reset ? 0 : count + 1;
 
-   wire [18:0] 	vram_addr2 = count[0+18:0];
-   wire [35:0] 	vpat = ( switch[1] ? {4{count[3+3:3],4'b0}}
-			 : {4{count[3+4:4],4'b0}} );
+   wire [18:0]    vram_addr2 = count[0+18:0];
+   wire [35:0]    vpat = {4{count[3+4:4],4'b0}};
 
    // mux selecting read/write to memory based on which write-enable is chosen
 
-   wire 	sw_ntsc = ~switch[7];
-   wire 	my_we = sw_ntsc ? (hcount[1:0]==2'd2) : blank;
-   wire [18:0] 	write_addr = sw_ntsc ? ntsc_addr : vram_addr2;
-   wire [35:0] 	write_data = sw_ntsc ? ntsc_data : vpat;
+   wire  my_we = (reversed_hcount[0]==1'd1);
+   wire [18:0]    write_addr = ntsc_addr;
+   wire [35:0]    write_data = ntsc_data;
 
-//   wire 	write_enable = sw_ntsc ? (my_we & ntsc_we) : my_we;
-//   assign 	vram_addr = write_enable ? write_addr : vram_addr1;
-//   assign 	vram_we = write_enable;
+//   wire   write_enable = sw_ntsc ? (my_we & ntsc_we) : my_we;
+//   assign    vram_addr = write_enable ? write_addr : vram_addr1;
+//   assign    vram_we = write_enable;
 
-   assign 	vram_addr = my_we ? write_addr : vram_addr1;
-   assign 	vram_we = my_we;
-   assign 	vram_write_data = write_data;
+   assign   vram_addr = my_we ? write_addr : vram_addr1;
+   assign   vram_we = my_we;
+   assign   vram_write_data = write_data;
 
    // select output pixel data
 
-   reg [7:0] 	pixel;
-   reg 	b,hs,vs;
+   reg [17:0]  pixel;
+   reg   b,hs,vs;
    
    always @(posedge clk)
      begin
-	pixel <= switch[0] ? {hcount[8:6],5'b0} : vr_pixel;
-	b <= blank;
-	hs <= hsync;
-	vs <= vsync;
+   pixel <= switch[0] ? {hcount[8:6],5'b0} : vr_pixel;
+   b <= blank;
+   hs <= hsync;
+   vs <= vsync;
      end
+     
+   wire in_frame;
+   wire [23:0] cropped_rgb, cropped_hsv;
+   assign in_frame = (reversed_hcount >=150 && reversed_hcount <= 855 && vcount >= 105 && vcount <= 600);
+   assign cropped_rgb = in_frame ? {pixel[17:12],2'd1,pixel[11:6],2'd1,pixel[5:0],2'd1} : {8'd1,8'd1,8'd1};
+
+
+
+   // X, Y blob detection
+
+   wire [10:0] green_x, pink_x;
+   wire [9:0] green_y, pink_y;
+
+   rgb2hsv rgb2hsv(.clock(tv_in_line_clock1), .reset(reset),
+      .r(cropped_rgb[23:16]), .g(cropped_rgb[15:8]), .b(cropped_rgb[7:0]),
+      .h(cropped_hsv[23:16]), .s(cropped_hsv[15:8]), .v(cropped_hsv[7:0]));
+
+   // green threshhold + tweaking
+   // USER_NOTE: switch 1 enables us to tweak green thresholding
+   // right/left to inc/dec value
+   // btn0: value; btn1: saturation; btn2: hue_high; btn3: hue_low
+   wire [7:0] green_h_low, green_h_high, green_s_low, green_v_low;
+   always @(posedge clock_250_clock) begin  // TODO make slow clock
+   if (switch[1])
+      begin
+      if (!button3 && !button_left)
+         green_h_low <= green_h_low - 1;
+      else if (!button3 && !button_right)
+         green_h_low <= green_h_low + 1;
+      else if (!button2 && !button_left)
+         green_h_high <= green_h_high - 1;
+      else if (!button2 && !button_right)
+         green_h_high <= green_h_high + 1;
+      else if (!button1 && !button_left)
+         green_s_low <= green_s_low - 1;
+      else if (!button1 && !button_right)
+         green_s_low <= green_s_low + 1;
+      else if (!button0 && !button_left)
+         green_v_low <= green_v_low - 1;
+      else if (!button0 && !button_right)
+         green_v_low <= green_v_low + 1;
+      end
+   end
+
+   wire green_detected;
+   assign green_detected = (
+      cropped_hsv[23:16] > green_h_low && cropped_hsv[23:16] < green_h_high &&
+      cropped_hsv[15:8] > green_s_low && cropped_hsv[7:0] > green_v_low);
+
+   hsv_threshold green_thresh(.clock(tv_in_line_clock1), .reset(reset),
+      .detected(green_detected), .x(reversed_hcount), .y(vcount),
+      .x_out(green_x), .y_out(green_y));
+
+   // pink threshhold + tweaking
+   // USER_NOTE: switch 2 enables us to tweak pink thresholding
+   // right/left to inc/dec value
+   // btn0: value; btn1: saturation; btn2: hue_high; btn3: hue_low
+   wire [7:0] pink_h_low, pink_h_high, pink_s_low, pink_v_low;
+   always @(posedge clock_250_clock) begin  // TODO make slow clock
+   if (switch[2])
+      begin
+      if (!button3 && !button_left)
+         pink_h_low <= pink_h_low - 1;
+      else if (!button3 && !button_right)
+         pink_h_low <= pink_h_low + 1;
+      else if (!button2 && !button_left)
+         pink_h_high <= pink_h_high - 1;
+      else if (!button2 && !button_right)
+         pink_h_high <= pink_h_high + 1;
+      else if (!button1 && !button_left)
+         pink_s_low <= pink_s_low - 1;
+      else if (!button1 && !button_right)
+         pink_s_low <= pink_s_low + 1;
+      else if (!button0 && !button_left)
+         pink_v_low <= pink_v_low - 1;
+      else if (!button0 && !button_right)
+         pink_v_low <= pink_v_low + 1;
+      end
+   end
+
+   wire pink_detected;
+   assign pink_detected = (
+      cropped_hsv[23:16] > pink_h_low && cropped_hsv[23:16] < pink_h_high &&
+      cropped_hsv[15:8] > pink_s_low && cropped_hsv[7:0] > pink_v_low);
+
+   hsv_threshold pink_thresh(.clock(tv_in_line_clock1), .reset(reset),
+      .detected(pink_detected), .x(reversed_hcount), .y(vcount),
+      .x_out(pink_x), .y_out(pink_y));
+
 
    // VGA Output.  In order to meet the setup and hold times of the
    // AD7125, we send it ~clk.
-   assign vga_out_red = pixel;
-   assign vga_out_green = pixel;
-   assign vga_out_blue = pixel;
+
+   assign vga_out_red = green_detected ? 8'd0 : (pink_detected ? 8'd255 : cropped_rgb[23:16]);
+   assign vga_out_green = green_detected ? 8'd255 : (pink_detected ? 8'd0 : cropped_rgb[15:8]);
+   assign vga_out_blue = green_detected ? 8'd0 : (pink_detected ? 8'd0 : cropped_rgb[7:0]);
+
    assign vga_out_sync_b = 1'b1;    // not used
    assign vga_out_pixel_clock = ~clk;
    assign vga_out_blank_b = ~b;
@@ -531,101 +625,4 @@ module zbt_6111_sample(beep, audio_reset_b,
      dispdata <= {ntsc_data,9'b0,ntsc_addr};
 
 endmodule
-
-///////////////////////////////////////////////////////////////////////////////
-// xvga: Generate XVGA display signals (1024 x 768 @ 60Hz)
-
-module xvga(vclock,hcount,vcount,hsync,vsync,blank);
-   input vclock;
-   output [10:0] hcount;
-   output [9:0] vcount;
-   output 	vsync;
-   output 	hsync;
-   output 	blank;
-
-   reg 	  hsync,vsync,hblank,vblank,blank;
-   reg [10:0] 	 hcount;    // pixel number on current line
-   reg [9:0] vcount;	 // line number
-
-   // horizontal: 1344 pixels total
-   // display 1024 pixels per line
-   wire      hsyncon,hsyncoff,hreset,hblankon;
-   assign    hblankon = (hcount == 1023);    
-   assign    hsyncon = (hcount == 1047);
-   assign    hsyncoff = (hcount == 1183);
-   assign    hreset = (hcount == 1343);
-
-   // vertical: 806 lines total
-   // display 768 lines
-   wire      vsyncon,vsyncoff,vreset,vblankon;
-   assign    vblankon = hreset & (vcount == 767);    
-   assign    vsyncon = hreset & (vcount == 776);
-   assign    vsyncoff = hreset & (vcount == 782);
-   assign    vreset = hreset & (vcount == 805);
-
-   // sync and blanking
-   wire      next_hblank,next_vblank;
-   assign next_hblank = hreset ? 0 : hblankon ? 1 : hblank;
-   assign next_vblank = vreset ? 0 : vblankon ? 1 : vblank;
-   always @(posedge vclock) begin
-      hcount <= hreset ? 0 : hcount + 1;
-      hblank <= next_hblank;
-      hsync <= hsyncon ? 0 : hsyncoff ? 1 : hsync;  // active low
-
-      vcount <= hreset ? (vreset ? 0 : vcount + 1) : vcount;
-      vblank <= next_vblank;
-      vsync <= vsyncon ? 0 : vsyncoff ? 1 : vsync;  // active low
-
-      blank <= next_vblank | (next_hblank & ~hreset);
-   end
-endmodule
-
-/*
-///////////////////////////////////////////////////////////////////////////////
-// xvga: Generate XVGA display signals (800 x 600 @ 60Hz)
-
-module xvga(vclock,hcount,vcount,hsync,vsync,blank);
-   input vclock;
-   output [10:0] hcount;
-   output [9:0] vcount;
-   output 	vsync;
-   output 	hsync;
-   output 	blank;
-
-   reg 	  hsync,vsync,hblank,vblank,blank;
-   reg [10:0] 	 hcount;    // pixel number on current line
-   reg [9:0] vcount;	 // line number
-
-   // horizontal: 1056 pixels total
-   // display 800 pixels per line
-   wire      hsyncon,hsyncoff,hreset,hblankon;
-   assign    hblankon = (hcount == 799);    
-   assign    hsyncon = (hcount == 839);
-   assign    hsyncoff = (hcount == 967);
-   assign    hreset = (hcount == 1055);
-
-   // vertical: 628 lines total
-   // display 600 lines
-   wire      vsyncon,vsyncoff,vreset,vblankon;
-   assign    vblankon = hreset & (vcount == 599);
-   assign    vsyncon = hreset & (vcount == 600);
-   assign    vsyncoff = hreset & (vcount == 604);
-   assign    vreset = hreset & (vcount == 627);
-
-   // sync and blanking
-   wire      next_hblank,next_vblank;
-   assign next_hblank = hreset ? 0 : hblankon ? 1 : hblank;
-   assign next_vblank = vreset ? 0 : vblankon ? 1 : vblank;
-   always @(posedge vclock) begin
-      hcount <= hreset ? 0 : hcount + 1;
-      hblank <= next_hblank;
-      hsync <= hsyncon ? 0 : hsyncoff ? 1 : hsync;  // active low
-
-      vcount <= hreset ? (vreset ? 0 : vcount + 1) : vcount;
-      vblank <= next_vblank;
-      vsync <= vsyncon ? 0 : vsyncoff ? 1 : vsync;  // active low
-
-      blank <= next_vblank | (next_hblank & ~hreset);
-   end
-endmodule */
 
