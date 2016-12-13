@@ -5,14 +5,14 @@ Parameter TMPDIR set to /afs/athena.mit.edu/user/l/c/lcarter/6.111/6.111-finalpr
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.02 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to /afs/athena.mit.edu/user/l/c/lcarter/6.111/6.111-finalproj/lcarter-derp3/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.02 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: zbt_6111_sample.prj
@@ -109,20 +109,20 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling verilog file "zbt_6111.v" in library work
-Compiling verilog file "./ycrcb2rgb.v" in library work
+Compiling verilog file "source/zbt_6111.v" in library work
+Compiling verilog file "source/ycrcb2rgb.v" in library work
 Module <zbt_6111> compiled
-Compiling verilog file "video_decoder.v" in library work
+Compiling verilog file "source/video_decoder.v" in library work
 Module <ycrcb2rgb> compiled
 Module <ntsc_decode> compiled
 Module <adv7185init> compiled
-Compiling verilog file "ntsc2zbt.v" in library work
+Compiling verilog file "source/ntsc2zbt.v" in library work
 Module <i2c> compiled
-Compiling verilog file "display_16hex.v" in library work
+Compiling verilog file "source/display_16hex.v" in library work
 Module <ntsc_to_zbt> compiled
-Compiling verilog file "debounce.v" in library work
+Compiling verilog file "source/debounce.v" in library work
 Module <display_16hex> compiled
-Compiling verilog file "zbt_6111_sample.v" in library work
+Compiling verilog file "source/zbt_6111_sample.v" in library work
 Module <debounce> compiled
 Module <zbt_6111_sample> compiled
 Module <xvga> compiled
@@ -179,31 +179,31 @@ Analyzing hierarchy for module <ntsc_to_zbt> in library <work> with parameters.
 
 Analyzing hierarchy for module <i2c> in library <work>.
 
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 374: attribute on instance <CLKFX_DIVIDE> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 374: attribute on instance <CLKFX_MULTIPLY> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 374: attribute on instance <CLKIN_PERIOD> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 374: attribute on instance <CLK_FEEDBACK> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 792: attribute on instance <CLKOUT_PHASE_SHIFT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 792: attribute on instance <CLK_FEEDBACK> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 792: attribute on instance <DFS_FREQUENCY_MODE> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 792: attribute on instance <DLL_FREQUENCY_MODE> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 792: attribute on instance <DUTY_CYCLE_CORRECTION> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 792: attribute on instance <PHASE_SHIFT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 792: attribute on instance <STARTUP_WAIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 809: attribute on instance <CLKOUT_PHASE_SHIFT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 809: attribute on instance <CLK_FEEDBACK> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 809: attribute on instance <DFS_FREQUENCY_MODE> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 809: attribute on instance <DLL_FREQUENCY_MODE> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 809: attribute on instance <DUTY_CYCLE_CORRECTION> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 809: attribute on instance <PHASE_SHIFT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 809: attribute on instance <STARTUP_WAIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
-WARNING:Xst:2591 - "zbt_6111_sample.v" line 822: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 374: attribute on instance <CLKFX_DIVIDE> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 374: attribute on instance <CLKFX_MULTIPLY> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 374: attribute on instance <CLKIN_PERIOD> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 374: attribute on instance <CLK_FEEDBACK> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 792: attribute on instance <CLKOUT_PHASE_SHIFT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 792: attribute on instance <CLK_FEEDBACK> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 792: attribute on instance <DFS_FREQUENCY_MODE> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 792: attribute on instance <DLL_FREQUENCY_MODE> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 792: attribute on instance <DUTY_CYCLE_CORRECTION> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 792: attribute on instance <PHASE_SHIFT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 792: attribute on instance <STARTUP_WAIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 809: attribute on instance <CLKOUT_PHASE_SHIFT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 809: attribute on instance <CLK_FEEDBACK> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 809: attribute on instance <DFS_FREQUENCY_MODE> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 809: attribute on instance <DLL_FREQUENCY_MODE> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 809: attribute on instance <DUTY_CYCLE_CORRECTION> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 809: attribute on instance <PHASE_SHIFT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 809: attribute on instance <STARTUP_WAIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
+WARNING:Xst:2591 - "source/zbt_6111_sample.v" line 822: attribute on instance <INIT> overrides generic/parameter on entity. It is possible that simulator will not take this attribute into account.
 
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing top module <zbt_6111_sample>.
-WARNING:Xst:2211 - "./ycrcb2rgb.v" line 472: Instantiating black box module <ycrcb2rgb>.
+WARNING:Xst:2211 - "source/ycrcb2rgb.v" line 472: Instantiating black box module <ycrcb2rgb>.
 Module <zbt_6111_sample> is correct for synthesis.
  
     Set user-defined property "CLKDV_DIVIDE =  2.0000000000000000" for instance <vclk1> in unit <zbt_6111_sample>.
@@ -278,44 +278,44 @@ Analyzing module <zbt_6111> in library <work>.
 Module <zbt_6111> is correct for synthesis.
  
 Analyzing module <vram_display> in library <work>.
-WARNING:Xst:2725 - "zbt_6111_sample.v" line 714: Size mismatch between case item and case selector.
-WARNING:Xst:2725 - "zbt_6111_sample.v" line 715: Size mismatch between case item and case selector.
+WARNING:Xst:2725 - "source/zbt_6111_sample.v" line 714: Size mismatch between case item and case selector.
+WARNING:Xst:2725 - "source/zbt_6111_sample.v" line 715: Size mismatch between case item and case selector.
 Module <vram_display> is correct for synthesis.
  
 Analyzing module <adv7185init> in library <work>.
-"video_decoder.v" line 521: $display : ADV7185 Initialization values:
-WARNING:Xst:2326 - "video_decoder.v" line 522: Invalid escape sequence : %X.
-"video_decoder.v" line 522: $display :   Register 0:  0x%X 0
-WARNING:Xst:2326 - "video_decoder.v" line 523: Invalid escape sequence : %X.
-"video_decoder.v" line 523: $display :   Register 1:  0x%X128
-WARNING:Xst:2326 - "video_decoder.v" line 524: Invalid escape sequence : %X.
-"video_decoder.v" line 524: $display :   Register 2:  0x%X 4
-WARNING:Xst:2326 - "video_decoder.v" line 525: Invalid escape sequence : %X.
-"video_decoder.v" line 525: $display :   Register 3:  0x%X 0
-WARNING:Xst:2326 - "video_decoder.v" line 526: Invalid escape sequence : %X.
-"video_decoder.v" line 526: $display :   Register 4:  0x%X12
-WARNING:Xst:2326 - "video_decoder.v" line 527: Invalid escape sequence : %X.
-"video_decoder.v" line 527: $display :   Register 5:  0x%X64
-WARNING:Xst:2326 - "video_decoder.v" line 528: Invalid escape sequence : %X.
-"video_decoder.v" line 528: $display :   Register 7:  0x%X144
-WARNING:Xst:2326 - "video_decoder.v" line 529: Invalid escape sequence : %X.
-"video_decoder.v" line 529: $display :   Register 8:  0x%X128
-WARNING:Xst:2326 - "video_decoder.v" line 530: Invalid escape sequence : %X.
-"video_decoder.v" line 530: $display :   Register 9:  0x%X140
-WARNING:Xst:2326 - "video_decoder.v" line 531: Invalid escape sequence : %X.
-"video_decoder.v" line 531: $display :   Register A:  0x%X 0
-WARNING:Xst:2326 - "video_decoder.v" line 532: Invalid escape sequence : %X.
-"video_decoder.v" line 532: $display :   Register B:  0x%X 0
-WARNING:Xst:2326 - "video_decoder.v" line 533: Invalid escape sequence : %X.
-"video_decoder.v" line 533: $display :   Register C:  0x%X48
-WARNING:Xst:2326 - "video_decoder.v" line 534: Invalid escape sequence : %X.
-"video_decoder.v" line 534: $display :   Register D:  0x%X136
-WARNING:Xst:2326 - "video_decoder.v" line 535: Invalid escape sequence : %X.
-"video_decoder.v" line 535: $display :   Register E:  0x%X 0
-WARNING:Xst:2326 - "video_decoder.v" line 536: Invalid escape sequence : %X.
-"video_decoder.v" line 536: $display :   Register F:  0x%X 0
-WARNING:Xst:2326 - "video_decoder.v" line 537: Invalid escape sequence : %X.
-"video_decoder.v" line 537: $display :   Register 33: 0x%X227
+"source/video_decoder.v" line 521: $display : ADV7185 Initialization values:
+WARNING:Xst:2326 - "source/video_decoder.v" line 522: Invalid escape sequence : %X.
+"source/video_decoder.v" line 522: $display :   Register 0:  0x%X 0
+WARNING:Xst:2326 - "source/video_decoder.v" line 523: Invalid escape sequence : %X.
+"source/video_decoder.v" line 523: $display :   Register 1:  0x%X128
+WARNING:Xst:2326 - "source/video_decoder.v" line 524: Invalid escape sequence : %X.
+"source/video_decoder.v" line 524: $display :   Register 2:  0x%X 4
+WARNING:Xst:2326 - "source/video_decoder.v" line 525: Invalid escape sequence : %X.
+"source/video_decoder.v" line 525: $display :   Register 3:  0x%X 0
+WARNING:Xst:2326 - "source/video_decoder.v" line 526: Invalid escape sequence : %X.
+"source/video_decoder.v" line 526: $display :   Register 4:  0x%X12
+WARNING:Xst:2326 - "source/video_decoder.v" line 527: Invalid escape sequence : %X.
+"source/video_decoder.v" line 527: $display :   Register 5:  0x%X64
+WARNING:Xst:2326 - "source/video_decoder.v" line 528: Invalid escape sequence : %X.
+"source/video_decoder.v" line 528: $display :   Register 7:  0x%X144
+WARNING:Xst:2326 - "source/video_decoder.v" line 529: Invalid escape sequence : %X.
+"source/video_decoder.v" line 529: $display :   Register 8:  0x%X128
+WARNING:Xst:2326 - "source/video_decoder.v" line 530: Invalid escape sequence : %X.
+"source/video_decoder.v" line 530: $display :   Register 9:  0x%X140
+WARNING:Xst:2326 - "source/video_decoder.v" line 531: Invalid escape sequence : %X.
+"source/video_decoder.v" line 531: $display :   Register A:  0x%X 0
+WARNING:Xst:2326 - "source/video_decoder.v" line 532: Invalid escape sequence : %X.
+"source/video_decoder.v" line 532: $display :   Register B:  0x%X 0
+WARNING:Xst:2326 - "source/video_decoder.v" line 533: Invalid escape sequence : %X.
+"source/video_decoder.v" line 533: $display :   Register C:  0x%X48
+WARNING:Xst:2326 - "source/video_decoder.v" line 534: Invalid escape sequence : %X.
+"source/video_decoder.v" line 534: $display :   Register D:  0x%X136
+WARNING:Xst:2326 - "source/video_decoder.v" line 535: Invalid escape sequence : %X.
+"source/video_decoder.v" line 535: $display :   Register E:  0x%X 0
+WARNING:Xst:2326 - "source/video_decoder.v" line 536: Invalid escape sequence : %X.
+"source/video_decoder.v" line 536: $display :   Register F:  0x%X 0
+WARNING:Xst:2326 - "source/video_decoder.v" line 537: Invalid escape sequence : %X.
+"source/video_decoder.v" line 537: $display :   Register 33: 0x%X227
 Module <adv7185init> is correct for synthesis.
  
     Set user-defined property "INIT =  0" for signal <clock_slow>.
@@ -364,7 +364,7 @@ INFO:Xst:2561 - Always blocking tristate driving signal <daughtercard> in unit <
 INFO:Xst:2561 - Always blocking tristate driving signal <systemace_data> in unit <zbt_6111_sample> is removed.
 
 Synthesizing Unit <debounce>.
-    Related source file is "debounce.v".
+    Related source file is "source/debounce.v".
     Found 1-bit register for signal <clean>.
     Found 20-bit up counter for signal <count>.
     Found 1-bit xor2 for signal <count$xor0000> created at line 20.
@@ -376,7 +376,7 @@ Unit <debounce> synthesized.
 
 
 Synthesizing Unit <display_16hex>.
-    Related source file is "display_16hex.v".
+    Related source file is "source/display_16hex.v".
 INFO:Xst:2117 - HDL ADVISOR - Mux Selector <state> of Case statement line 95 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
    	- add an 'INIT' attribute on signal <state> (optimization is then done without any risk)
    	- use the attribute 'signal_encoding user' to avoid onehot optimization
@@ -410,7 +410,7 @@ Unit <display_16hex> synthesized.
 
 
 Synthesizing Unit <xvga>.
-    Related source file is "zbt_6111_sample.v".
+    Related source file is "source/zbt_6111_sample.v".
     Found 10-bit up counter for signal <vcount>.
     Found 1-bit register for signal <vsync>.
     Found 11-bit up counter for signal <hcount>.
@@ -425,7 +425,7 @@ Unit <xvga> synthesized.
 
 
 Synthesizing Unit <zbt_6111>.
-    Related source file is "zbt_6111.v".
+    Related source file is "source/zbt_6111.v".
     Found 36-bit tristate buffer for signal <ram_data>.
     Found 2-bit register for signal <we_delay>.
     Found 36-bit register for signal <write_data_old1>.
@@ -437,7 +437,7 @@ Unit <zbt_6111> synthesized.
 
 
 Synthesizing Unit <vram_display>.
-    Related source file is "zbt_6111_sample.v".
+    Related source file is "source/zbt_6111_sample.v".
 WARNING:Xst:647 - Input <reset> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:646 - Signal <hcount_f<10>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <hcount_f<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
@@ -456,7 +456,7 @@ Unit <vram_display> synthesized.
 
 
 Synthesizing Unit <ntsc_decode>.
-    Related source file is "video_decoder.v".
+    Related source file is "source/video_decoder.v".
 WARNING:Xst:646 - Signal <state> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 1-bit register for signal <f>.
     Found 10-bit register for signal <cb>.
@@ -469,7 +469,7 @@ Unit <ntsc_decode> synthesized.
 
 
 Synthesizing Unit <ntsc_to_zbt>.
-    Related source file is "ntsc2zbt.v".
+    Related source file is "source/ntsc2zbt.v".
 WARNING:Xst:646 - Signal <y_delay<39>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <we_delay<3>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 36-bit register for signal <ntsc_data>.
@@ -501,7 +501,7 @@ Unit <ntsc_to_zbt> synthesized.
 
 
 Synthesizing Unit <i2c>.
-    Related source file is "video_decoder.v".
+    Related source file is "source/video_decoder.v".
     Found finite state machine <FSM_0> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 42                                             |
@@ -529,12 +529,12 @@ Unit <i2c> synthesized.
 
 
 Synthesizing Unit <ramclock>.
-    Related source file is "zbt_6111_sample.v".
+    Related source file is "source/zbt_6111_sample.v".
 Unit <ramclock> synthesized.
 
 
 Synthesizing Unit <adv7185init>.
-    Related source file is "video_decoder.v".
+    Related source file is "source/video_decoder.v".
     Found finite state machine <FSM_1> for signal <state>.
     -----------------------------------------------------------------------
     | States             | 37                                             |
@@ -563,7 +563,7 @@ Unit <adv7185init> synthesized.
 
 
 Synthesizing Unit <zbt_6111_sample>.
-    Related source file is "zbt_6111_sample.v".
+    Related source file is "source/zbt_6111_sample.v".
 WARNING:Xst:2565 - Inout <user3<28>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<4>> is never assigned.
 WARNING:Xst:2565 - Inout <user3<29>> is never assigned.
@@ -1574,13 +1574,13 @@ Delay:               7.195ns (Levels of Logic = 3)
 =========================================================================
 
 
-Total REAL time to Xst completion: 10.00 secs
-Total CPU time to Xst completion: 10.15 secs
+Total REAL time to Xst completion: 24.00 secs
+Total CPU time to Xst completion: 22.92 secs
  
 --> 
 
 
-Total memory usage is 503812 kilobytes
+Total memory usage is 499744 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  403 (   0 filtered)

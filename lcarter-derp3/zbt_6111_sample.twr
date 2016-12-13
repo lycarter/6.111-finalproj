@@ -6,7 +6,7 @@ Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
 /afs/athena.mit.edu/user/l/c/lcarter/6.111/6.111-finalproj/lcarter-derp3/lcarter-derp3.ise
 -intstyle ise -v 3 -s 4 -xml zbt_6111_sample zbt_6111_sample.ncd -o
 zbt_6111_sample.twr zbt_6111_sample.pcf -ucf
-/afs/athena.mit.edu/user/l/c/lcarter/labkit.ucf
+/afs/athena.mit.edu/user/l/c/lcarter/6.111/6.111-finalproj/lcarter-derp3/source/labkit.ucf
 
 Design file:              zbt_6111_sample.ncd
 Physical constraint file: zbt_6111_sample.pcf
@@ -225,7 +225,7 @@ switch<0>      |led<0>             |    6.389|
 ---------------+-------------------+---------+
 
 
-Analysis completed Sun Dec 11 23:41:31 2016 
+Analysis completed Tue Dec 13 04:28:47 2016 
 --------------------------------------------------------------------------------
 
 Trace Settings:
